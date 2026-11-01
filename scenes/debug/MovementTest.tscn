@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cr3hebdk10vrh"]
+
+[ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="1_gx12f"]
+[ext_resource type="Script" uid="uid://dk1v7tyddaga5" path="res://actors/camera/camera.gd" id="2_3ooxk"]
+[ext_resource type="Texture2D" uid="uid://newgxs8jw1cv" path="res://icon.svg" id="3_5xgnv"]
+
+[node name="MovementTest" type="Node2D" unique_id=856092796]
+
+[node name="Player" parent="." unique_id=434478635 instance=ExtResource("1_gx12f")]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1598316424 node_paths=PackedStringArray("target")]
+script = ExtResource("2_3ooxk")
+target = NodePath("../Player")
+metadata/_custom_type_script = "uid://dk1v7tyddaga5"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1761399042]
+position = Vector2(282, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1825698845]
+scale = Vector2(0.6332003, 0.6332003)
+texture = ExtResource("3_5xgnv")

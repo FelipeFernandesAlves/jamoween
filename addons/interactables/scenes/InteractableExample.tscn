@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://leksjq2mo0gk"]
+
+[ext_resource type="Script" uid="uid://b6i28xc5iayk" path="res://addons/interactables/scenes/interactable_example.gd" id="1_230bn"]
+[ext_resource type="Script" uid="uid://bx0sb6swfronr" path="res://addons/interactables/scripts/interaction_context.gd" id="2_0mrua"]
+[ext_resource type="Script" uid="uid://btlbyrf87xmqq" path="res://addons/interactables/scenes/player.gd" id="2_3cqu1"]
+[ext_resource type="Texture2D" uid="uid://dgnt1hraunpe6" path="res://shy_shoe.svg" id="2_ej3tf"]
+[ext_resource type="Script" uid="uid://bh0biok6o5qud" path="res://addons/interactables/scripts/interactable.gd" id="5_rfa34"]
+[ext_resource type="Script" uid="uid://c1elgw6m4c5tv" path="res://addons/interactables/scenes/interactable_ui.gd" id="6_g6yqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(84, 90)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 131.85
+
+[node name="InteractableExample" type="Node2D" unique_id=518351274]
+y_sort_enabled = true
+script = ExtResource("1_230bn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1539983381]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1344859636]
+y_sort_enabled = true
+script = ExtResource("2_3cqu1")
+
+[node name="InteractionContext" type="Node" parent="Player" unique_id=1669944276 node_paths=PackedStringArray("target")]
+script = ExtResource("2_0mrua")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://bx0sb6swfronr"
+
+[node name="ShyShoe" type="Sprite2D" parent="Player" unique_id=1908542389]
+texture_filter = 1
+position = Vector2(0, -49)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ej3tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=49138506]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Interactable" type="Node2D" parent="." unique_id=1953144170]
+y_sort_enabled = true
+position = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable" unique_id=882191607]
+scale = Vector2(0.30637005, 0.30637005)
+texture = ExtResource("2_ej3tf")
+
+[node name="InteractableModule" type="Node" parent="Interactable" unique_id=1244933020 node_paths=PackedStringArray("interaction_area", "target")]
+script = ExtResource("5_rfa34")
+interaction_area = NodePath("../Area2D")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://bh0biok6o5qud"
+
+[node name="Area2D" type="Area2D" parent="Interactable" unique_id=615346781]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Area2D" unique_id=1529462610]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Control" type="Control" parent="Interactable" unique_id=207146945 node_paths=PackedStringArray("target", "label")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("6_g6yqr")
+target = NodePath("..")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Interactable/Control" unique_id=422249351]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -54.0
+offset_right = 52.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pressione \"Espaço\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interactable2" type="Node2D" parent="." unique_id=888234438]
+y_sort_enabled = true
+position = Vector2(144, 57)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable2" unique_id=2046221358]
+scale = Vector2(0.30637005, 0.30637005)
+texture = ExtResource("2_ej3tf")
+
+[node name="InteractableModule" type="Node" parent="Interactable2" unique_id=806730105 node_paths=PackedStringArray("interaction_area", "target")]
+script = ExtResource("5_rfa34")
+interaction_area = NodePath("../Area2D")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://bh0biok6o5qud"
+
+[node name="Area2D" type="Area2D" parent="Interactable2" unique_id=162920202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2/Area2D" unique_id=1942764154]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Control" type="Control" parent="Interactable2" unique_id=124881937 node_paths=PackedStringArray("target", "label")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("6_g6yqr")
+target = NodePath("..")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Interactable2/Control" unique_id=1474065589]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -54.0
+offset_right = 52.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pressione \"Espaço\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="focus_in" from="Interactable/InteractableModule" to="Interactable/Control" method="_on_interactable_module_focus_in"]
+[connection signal="focus_out" from="Interactable/InteractableModule" to="Interactable/Control" method="_on_interactable_module_focus_out"]
+[connection signal="interacted" from="Interactable/InteractableModule" to="Interactable/Control" method="_on_interactable_module_interacted"]
+[connection signal="focus_in" from="Interactable2/InteractableModule" to="Interactable2/Control" method="_on_interactable_module_focus_in"]
+[connection signal="focus_out" from="Interactable2/InteractableModule" to="Interactable2/Control" method="_on_interactable_module_focus_out"]
+[connection signal="interacted" from="Interactable2/InteractableModule" to="Interactable2/Control" method="_on_interactable_module_interacted"]

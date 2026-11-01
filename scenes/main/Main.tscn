@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bc2q8gu8yble6"]
+
+[ext_resource type="Script" uid="uid://dcid7cfjpw7wm" path="res://scenes/main/main.gd" id="1_nha0i"]
+[ext_resource type="PackedScene" uid="uid://cr3hebdk10vrh" path="res://scenes/debug/MovementTest.tscn" id="2_q24mn"]
+
+[node name="Main" type="Node2D" unique_id=1516685261]
+script = ExtResource("1_nha0i")
+initial_scene = ExtResource("2_q24mn")
