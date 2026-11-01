@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx3pb5jgygiqm" path="res://actors/player/player.gd" id="1_ehwws"]
 [ext_resource type="Script" uid="uid://bx0sb6swfronr" path="res://addons/interactables/scripts/interaction_context.gd" id="2_dthho"]
-[ext_resource type="Texture2D" uid="uid://newgxs8jw1cv" path="res://icon.svg" id="3_jg3c0"]
+[ext_resource type="Texture2D" uid="uid://vv7qc1cr5qkd" path="res://_raw_assets/player_rascunho.png" id="3_jg3c0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -16,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(128, 127)
+size = Vector2(94, 14)
 
 [node name="Player" type="CharacterBody2D" unique_id=434478635]
 script = ExtResource("1_ehwws")
@@ -31,5 +31,5 @@ metadata/_custom_type_script = "uid://bx0sb6swfronr"
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166386184]
-position = Vector2(0, 0.5)
+position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_g4v7s")

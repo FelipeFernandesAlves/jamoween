@@ -19,9 +19,17 @@ config/icon="res://icon.svg"
 
 InteractionManager="*uid://b2heftae4gwn6"
 DialogueManager="*uid://c3rodes2l3gxb"
+PersistenceKeyManager="*uid://dwmym6f55la42"
+SceneManager="*uid://c6aii2yjm38jo"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://interface/dialogue_balloon/balloon.tscn"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -61,6 +69,10 @@ interact={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/InitialCutscene.dialogue")
 
 [physics]
 

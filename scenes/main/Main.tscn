@@ -1,8 +1,36 @@
 [gd_scene format=3 uid="uid://bc2q8gu8yble6"]
 
 [ext_resource type="Script" uid="uid://dcid7cfjpw7wm" path="res://scenes/main/main.gd" id="1_nha0i"]
-[ext_resource type="PackedScene" uid="uid://cr3hebdk10vrh" path="res://scenes/debug/MovementTest.tscn" id="2_q24mn"]
+[ext_resource type="PackedScene" uid="uid://1jn45jvc5dfp" path="res://interface/dialogue_balloon/balloon.tscn" id="3_q24mn"]
+[ext_resource type="PackedScene" uid="uid://biqwdh53jld31" path="res://addons/shysplashscreen/splash_screen.tscn" id="3_sjxhf"]
+[ext_resource type="PackedScene" uid="uid://d1iwr7kukwxhs" path="res://scenes/wagons/wagon01/Wagon01.tscn" id="4_1rhdn"]
+[ext_resource type="Script" uid="uid://bj0q28jty4a1k" path="res://addons/sceneloader/scripts/sceneloader.gd" id="5_1rhdn"]
+[ext_resource type="PackedScene" uid="uid://461j4bi7o7on" path="res://addons/sceneloader/scenes/DefaultLoadingScreen.tscn" id="6_sjxhf"]
 
-[node name="Main" type="Node2D" unique_id=1516685261]
+[node name="Main" type="Node2D" unique_id=1516685261 node_paths=PackedStringArray("scene_loader", "control_parent")]
+process_mode = 3
 script = ExtResource("1_nha0i")
-initial_scene = ExtResource("2_q24mn")
+default_balloon = ExtResource("3_q24mn")
+splash_screen = ExtResource("3_sjxhf")
+initial_scene = ExtResource("4_1rhdn")
+scene_loader = NodePath("SceneLoader")
+control_parent = NodePath("CanvasLayer/ControlParent")
+
+[node name="Node2DParent" type="Node2D" parent="." unique_id=1805470764]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803469250]
+
+[node name="ControlParent" type="Control" parent="CanvasLayer" unique_id=2010653392]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SceneLoader" type="Node" parent="." unique_id=1761015442 node_paths=PackedStringArray("control_parent", "node2d_parent")]
+script = ExtResource("5_1rhdn")
+loading_screen = ExtResource("6_sjxhf")
+control_parent = NodePath("../CanvasLayer/ControlParent")
+node2d_parent = NodePath("../Node2DParent")
+metadata/_custom_type_script = "uid://bj0q28jty4a1k"

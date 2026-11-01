@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bv0w2irgm0wwm"
+path="res://.godot/imported/InitialCutscene.dialogue-b351bb3cda3cdc17dc814a043c82f894.tres"
+
+[deps]
+
+source_file="res://dialogues/InitialCutscene.dialogue"
+dest_files=["res://.godot/imported/InitialCutscene.dialogue-b351bb3cda3cdc17dc814a043c82f894.tres"]
+
+[params]
+
+defaults=true

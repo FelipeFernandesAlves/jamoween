@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ch16n48kxrjtu"]
+
+[ext_resource type="Script" uid="uid://dk1v7tyddaga5" path="res://actors/camera/camera.gd" id="1_bbw8k"]
+[ext_resource type="AudioStream" uid="uid://cvfureo2rf67c" path="res://scenes/wagons/_base/ambience.ogg" id="2_k0d4v"]
+
+[node name="WagonBase" type="Node2D" unique_id=1777152443]
+process_mode = 3
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1640777978]
+
+[node name="Collisions" type="Node2D" parent="." unique_id=1510512279]
+
+[node name="CameraLimit" type="Area2D" parent="." unique_id=1307054044]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraLimit" unique_id=426174442]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1408765568]
+script = ExtResource("1_bbw8k")
+metadata/_custom_type_script = "uid://dk1v7tyddaga5"
+
+[node name="Entities" type="Node2D" parent="." unique_id=586613649]
+process_mode = 1
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1047913829]
+stream = ExtResource("2_k0d4v")
+volume_db = -10.0
+autoplay = true

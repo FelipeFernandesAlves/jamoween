@@ -1,7 +1,7 @@
 @icon("uid://drjfciwitjm83")
 
 ## A [Container] for dialogue responses provided by [b]Dialogue Manager[/b].
-class_name DialogueResponsesMenu extends Container
+class_name DialogueResponsesMenu extends HBoxContainer
 
 
 ## Emitted when a response is focused.

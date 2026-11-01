@@ -3,6 +3,7 @@ extends Camera2D
 
 @export var target: Node2D
 @export var camera_bounds: CollisionShape2D
+@export var camera_buffer: Vector2
 
 # Screeen shake
 var shake_intensity: float = 0.0
@@ -12,6 +13,14 @@ var shake_time: float = 0.0
 var shake_time_speed: float = 20.0
 
 var noise = FastNoiseLite.new()
+
+@export_group("Subway Shake Settings")
+@export var subway_shake_speed: float = 15.0       # Velocidade da oscilação
+@export var subway_shake_strength: float = 3.0     # Intensidade máxima do balanço (em pixels/unidades)
+
+var subway_noise: FastNoiseLite
+var use_subway_shake := true
+var subway_noise_y: float = 0.0
 
 func _ready() -> void:
 	# Camera bound to area
@@ -24,6 +33,10 @@ func _ready() -> void:
 		limit_top = int(global_pos.y - extents.y)
 		limit_right = int(global_pos.x + extents.x)
 		limit_bottom = int(global_pos.y + extents.y)
+	
+	subway_noise = FastNoiseLite.new()
+	subway_noise.seed = randi()
+	subway_noise.frequency = 1.0
 
 func _process(_delta: float) -> void:
 	# Follow target
@@ -31,6 +44,15 @@ func _process(_delta: float) -> void:
 		global_position = target.global_position
 
 func _physics_process(delta: float) -> void:
+	# Subway Noise
+	if (use_subway_shake):
+		subway_noise_y += delta * subway_shake_speed
+		var offset_x = noise.get_noise_1d(subway_noise_y) * subway_shake_strength
+		var offset_y = noise.get_noise_1d(subway_noise_y + 1000.0) * subway_shake_strength
+		
+		# Aplica o deslocamento na câmera
+		offset = Vector2(offset_x, offset_y)
+		
 	# Screen shake
 	if (active_shake_time > 0):
 		shake_time += delta * shake_time_speed
@@ -53,3 +75,15 @@ func screen_shake(intensity: int, time: float):
 	active_shake_time = time
 	shake_time = 0.0
 
+func reset_camera():
+	drag_horizontal_enabled = false
+	drag_vertical_enabled = false
+	
+	# Atualiza a posição
+	global_position = target.global_position
+	reset_smoothing()
+	
+	await get_tree().process_frame
+	
+	drag_horizontal_enabled = true
+	drag_vertical_enabled = true
