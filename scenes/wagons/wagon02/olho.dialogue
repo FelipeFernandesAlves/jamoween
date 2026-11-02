@@ -1,0 +1,27 @@
+import "res://general/snippets.dialogue" as snippets
+
+~ start
+if (InventoryManager.has_item("Copo") || InventoryManager.has_item("Copo (com água)")):
+	Olho: VIVA À HIDRATAÇÃO!!
+	=> END
+Olho: [shake rate=20 level=10]Vejo[/shake] que você anda sem tomar água..
+- Quem bebe àgua hoje em dia? 
+	Erick: Ah, eu? erhm, e quem bebe hoje em dia?
+	Olho: Mas é claro que eu! Todos nós! 
+	Olho: Não se passa por aqui sem um gole.. A fonte da vida, majestosa mãe da criação que agora no fim nos abraça.
+	Erick: Eu.. Não acho que eu concordo.
+	Olho: ...
+	Olho: [wave amp=25 freq=5]...[/wave]
+	Olho: Você não é daqui.
+	Erick: Eu..
+	Olho: Não, não é..
+	Você sente algo estranho dentro de você. Seu estômago cai enquanto um frio gélido te assombra.
+	Erick: [shake rate=20 level=10]AAAAAAAAAAAAAAAAAAAARHG[/shake]
+	=> snippets/player_death
+- Você está enganado!
+	Erick: Eu amo água! Como pode dizer isso?
+	Erick: Acontece que eu esqueci minha garrafa em casa..
+	Olho: Sorte sua que eu tenho um copo sobrando, não conte com a sorte na próxima em!
+	do InventoryManager.add_item_by_path("res://resources/items/cup.tres")
+
+=> END

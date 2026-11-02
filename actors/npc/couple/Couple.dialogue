@@ -1,0 +1,51 @@
+~ start
+if (!PersistenceKeyManager.check("couple_talked", true)):
+	Você se aproxima dos dois espíritos ecostados na porta. Você sente um forte cheiro de canela e cravo enquanto você se aproxima de uma confusão.
+	Canela: [shake rate=20 level=10]EU JÁ DISSE QUE FOI VOCÊ![/shake]
+	Cravo: Eu? É sério isso? Depois de tudo que eu fiz por você? No final vai ser assim?
+	Canela: Não se faça de vítima, eu tenho certeza que você bateu aquele carro! Você vivia dirigindo bêbado!
+	Canela: Eu falei pra você mudar de vida! Por mim, pelos filhos!
+	Cravo: Não coloque eles nisso! Eles vão crescer sem pais por culpa [shake rate=20 level=10]SUA![/shake]
+	Você para diante do casal, eles não parecem perceber você.
+	- Ei, com licença
+		Erick: Com licença senhores, preciso passar..
+		Canela: [shake rate=20 level=10]AH É?[/shake] Vai ser assim? Você joga baixo! Se eu tivesse escutado meus pais, não teria morrido por culpa SUA!
+		Erick: Gente, vocês estão na porta..
+		Ambos ficam em silêncio e olham para você. Você sente a tensão pairando no ar, envolta do silêncio que você conquistou com suado esforço.
+		Cravo: ... Seus pais sempre me amaram.
+		Canela: [shake rate=20 level=10]SÓ. SE. FOR. NOS. SEUS. SONHOS![/shake]
+		Ad Infinitum...
+		do PersistenceKeyManager.set_key("couple_talked", true)
+	- Sair
+		=> END
+else:
+	Você escuta algo fora de contexto.
+	% Cravo: Quantas vezes! Quantas vezes eu te disse!
+	% Canela: Vai em frente, joga na minha cara com o eu faço tudo errado!
+	% Cravo: Sim, claro, eu sou o errado, sempre sou e sempre vou ser!
+	% Canela: Eu juro que se tivesse a chance...
+if (InventoryManager.has_item("family_colar")):
+	Você segura o colar no seu bolso, a corrente passando por entre seus dedos. Esses dois não vão sair dessa sozinhos.
+	Erick: Vocês conseguer lembrar como morreram?
+	Cravo: ... Nós?
+	Canela: Foi por...
+	O silêncio invade o ambiente agressivamente
+	Cravo: Eu só consigo lembrar dele no final.
+	Canela: Eu.. Eu também! Só tem ele, em tudo que eu lembro.
+	Cravo: Você estava lá! Fazendo alguma coisa..
+	Canela: Torta idiota, eu adoro torta! E você também gostava.
+	- E quando isso aconteceu?
+	Cravo: Ah, foi de manhã. Que linda manhã!
+	Canela: Os pequenos iriam vir naquele dia, ah que saudade.
+	Erick: Como assim os pequenos iam vir? Eles não eram.. pequenos?
+	Cravo: Huh, você nunca teve filhos não é?
+	Erick: ehm..
+	Canela: Imaginei. Pra sempre serão meus pequenos.
+	"Pelo menos eles estão concordando em algo". Uma pequena conquista te motiva a continuar.
+	Erick: Seus filhos. Que idade eles tinham.
+	Canela: 48.. ehm.. 48
+	Cravo: 44 e 39.
+	Canela: Isso, ah meus meninos, que suadades.
+
+
+=> END

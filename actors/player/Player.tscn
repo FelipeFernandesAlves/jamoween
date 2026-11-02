@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://i6a7640hmqxl" path="res://actors/player/scenes/item_notification.tscn" id="7_fd065"]
 [ext_resource type="Script" uid="uid://dvhjsycaovjr6" path="res://actors/player/controls_interface.gd" id="8_ljiph"]
 [ext_resource type="Texture2D" uid="uid://cncpxin8bsyja" path="res://actors/player/tab_texture.tres" id="10_e2ar7"]
+[ext_resource type="Texture2D" uid="uid://dyf4fhfvv34hf" path="res://_raw_assets/light.png" id="14_46q1c"]
+[ext_resource type="Script" uid="uid://3jy5surfaa6n" path="res://actors/player/scripts/point_light_2d.gd" id="15_w7a8f"]
+[ext_resource type="Script" uid="uid://bmoew6y85okdg" path="res://addons/shy_juice_box/noise/noise.gd" id="16_482ff"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4bib"]
 atlas = ExtResource("4_e2ar7")
@@ -408,7 +411,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk_up"
 autoplay = "idle"
-frame_progress = 0.6253062
+frame_progress = 0.11668628
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166386184]
 position = Vector2(0, 33)
@@ -501,3 +504,22 @@ layout_mode = 2
 texture = ExtResource("10_e2ar7")
 expand_mode = 4
 stretch_mode = 5
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=46834870 node_paths=PackedStringArray("noise_gen")]
+process_mode = 3
+visible = false
+position = Vector2(0.83333325, 7.5000005)
+energy = 2.06
+blend_mode = 2
+texture = ExtResource("14_46q1c")
+texture_scale = 1.67
+script = ExtResource("15_w7a8f")
+noise_gen = NodePath("NoiseGen")
+texture_scale_base = 2.0
+
+[node name="NoiseGen" type="Node" parent="PointLight2D" unique_id=1286180030]
+script = ExtResource("16_482ff")
+magnitude = 0.2
+frequency = 1.0
+speed = 0.25
+metadata/_custom_type_script = "uid://bmoew6y85okdg"

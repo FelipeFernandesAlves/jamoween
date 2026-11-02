@@ -3,6 +3,8 @@ if (InventoryManager.has_item("Copo")):
 	- Encher Copo
 		Você abre a torneira do filtro misterioso e escorre o líquido pungente para dentro do copo.
 		Não, você não vai beber isso.
+		do InventoryManager.add_item_by_path("res://resources/items/water_cup.tres")
+		do InventoryManager.remove_item("Copo")
 	- Sair
 		=> END
 elif (InventoryManager.has_item("Copo (com água)")):

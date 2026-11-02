@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dhrcfae6g5k58"]
+
+[ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_1w16a"]
+[ext_resource type="Resource" uid="uid://3hwtmmyj50b3" path="res://actors/npc/couple/Couple.dialogue" id="2_sp3rd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[node name="Npc" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_1w16a")]
+interaction_dialogue = ExtResource("2_sp3rd")
+sprites = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=247161723]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="TextureRect" parent="." index="2" unique_id=335960852]
+offset_top = -97.0
+offset_bottom = -40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3" unique_id=814321636]
+scale = Vector2(3.921518, 3.921518)
+shape = SubResource("RectangleShape2D_g4v7s")

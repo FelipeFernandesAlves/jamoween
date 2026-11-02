@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bse22ug28868a" path="res://actors/npc/passage_spirit/passage_spirit.gd" id="2_cdsif"]
 [ext_resource type="Resource" uid="uid://bs72umv1sl8e" path="res://actors/npc/passage_spirit/passage_spirit.dialogue" id="3_nmr4v"]
 [ext_resource type="Texture2D" uid="uid://d1jwowakt5rdx" path="res://actors/npc/passage_spirit/passage_sheet.png" id="4_nmr4v"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="5_76qmh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76qmh"]
 atlas = ExtResource("4_nmr4v")
@@ -77,16 +78,22 @@ script = ExtResource("2_cdsif")
 interaction_dialogue = ExtResource("3_nmr4v")
 sprites = NodePath("AnimatedSprite2D")
 
-[node name="TextureRect" parent="." index="1" unique_id=335960852]
-offset_top = -114.0
-offset_bottom = -57.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=428924120]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=428924120]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame = 1
 frame_progress = 0.51933604
 
+[node name="TextureRect" parent="." index="2" unique_id=335960852]
+offset_top = -114.0
+offset_bottom = -57.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3" unique_id=1570544131]
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="DialogueStateContext" type="Node" parent="." index="4" unique_id=593650151 node_paths=PackedStringArray("target")]
+script = ExtResource("5_76qmh")
+alias = "PassageSpirit"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

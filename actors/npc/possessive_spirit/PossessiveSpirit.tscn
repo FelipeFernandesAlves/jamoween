@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_u7bnp"]
 [ext_resource type="Resource" uid="uid://b772fj4pdmyny" path="res://actors/npc/possessive_spirit/possessive_spirit.dialogue" id="2_62agw"]
+[ext_resource type="Script" uid="uid://dip7kdt0lwfjs" path="res://actors/npc/possessive_spirit/possessive_spirit.gd" id="2_a55d2"]
 [ext_resource type="Texture2D" uid="uid://bswnm7mqhhbic" path="res://actors/npc/possessive_spirit/possessive_sprite.png" id="3_62agw"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="4_myorw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myorw"]
 atlas = ExtResource("3_62agw")
@@ -62,22 +64,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(96, 31)
+size = Vector2(78, 31)
 
 [node name="PossessiveSpirit" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_u7bnp")]
+script = ExtResource("2_a55d2")
 interaction_dialogue = ExtResource("2_62agw")
 sprites = NodePath("AnimatedSprite2D")
 
-[node name="TextureRect" parent="." index="1" unique_id=335960852]
-offset_top = -108.0
-offset_bottom = -51.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1119833253]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1119833253]
+position = Vector2(-1, 32)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame = 5
 frame_progress = 0.98172975
 
+[node name="TextureRect" parent="." index="2" unique_id=335960852]
+offset_top = -108.0
+offset_bottom = -51.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3" unique_id=1635063909]
-position = Vector2(0, 32.5)
+position = Vector2(-6, 90)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="DialogueStateContext" type="Node" parent="." index="4" unique_id=48185866 node_paths=PackedStringArray("target")]
+script = ExtResource("4_myorw")
+alias = "PossessiveSpirit"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

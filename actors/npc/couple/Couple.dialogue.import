@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://3hwtmmyj50b3"
+path="res://.godot/imported/Couple.dialogue-b629f3e38af007627a90fc00460a96b3.tres"
+
+[deps]
+
+source_file="res://actors/npc/couple/Couple.dialogue"
+dest_files=["res://.godot/imported/Couple.dialogue-b629f3e38af007627a90fc00460a96b3.tres"]
+
+[params]
+
+defaults=true

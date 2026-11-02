@@ -47,6 +47,7 @@ position = Vector2(-159, 410)
 
 [node name="Door" parent="Entities" parent_id_path=PackedInt32Array(586613649) index="1" unique_id=587563385 instance=ExtResource("3_f1gv8")]
 position = Vector2(1591, 379)
+required_key = "couple_vanished"
 
 [node name="Area2D" type="Area2D" parent="Entities/Door" index="5" unique_id=971966117]
 

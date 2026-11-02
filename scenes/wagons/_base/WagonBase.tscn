@@ -61,6 +61,15 @@ _data = {
 &"black_bars": SubResource("Animation_5xdhe")
 }
 
+[sub_resource type="Environment" id="Environment_g4v7s"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.01
+adjustment_saturation = 0.8
+
 [node name="WagonBase" type="Node2D" unique_id=1777152443]
 process_mode = 3
 
@@ -122,3 +131,6 @@ process_mode = 1
 stream = ExtResource("2_k0d4v")
 volume_db = -10.0
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2106809637]
+environment = SubResource("Environment_g4v7s")

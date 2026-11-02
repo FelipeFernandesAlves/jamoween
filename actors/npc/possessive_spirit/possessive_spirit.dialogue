@@ -20,6 +20,7 @@ if (!PersistenceKeyManager.check("has_talked_to_possessive_spirit", true)):
 elif (InventoryManager.has_item("Copo (com água)")):
 	Criaturinha: [wave amp=20 freq=5]Seeeeeeeeeedeeeeee[/wave]
 	Erick: Ei carinha, bebe isso aqui
+	do InventoryManager.remove_item("Copo (com água)")
 	Você oferece o copo maligno pra ele beber.
 	Criaturinha: [wave amp=25 freq=5]Gulp gulp gulp globs[/wave]
 	Criaturinha: [wave amp=25 freq=5]Nooooooooossaaaa[/wave]
@@ -36,6 +37,9 @@ elif (InventoryManager.has_item("Copo (com água)")):
 	Criaturinha: Pode fica, não me serve mais. Não dá pra levar esse tipo de coisa pra onde eu vou mesmo.
 	Erick: Vai em paz carinha..
 	Amigo: Se cuida!
+	do InventoryManager.add_item_by_path("res://resources/items/family_colar.tres")
+	do PersistenceKeyManager.set_key("possessive_spirit_vanished", true)
+	do PossessiveSpirit.animate_vanish()
 else:
 	Criaturinha: Faça bom uso do meu tesouro tio!
 	Erick: Às suas ordens camarada!

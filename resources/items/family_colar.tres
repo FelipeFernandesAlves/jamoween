@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://com1hbxxcd3fg"]
+
+[ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="1_3v34a"]
+
+[resource]
+script = ExtResource("1_3v34a")
+name = "Colar de Família"
+desc = "Um colar com uma família aparentemente feliz. Um casal está segurando uma criança pequena no colo."
+metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

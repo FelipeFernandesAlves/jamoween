@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dkhhmh7munufk"
+path="res://.godot/imported/olho.dialogue-5e95e9f1ba557b99943db941ee62d448.tres"
+
+[deps]
+
+source_file="res://scenes/wagons/wagon02/olho.dialogue"
+dest_files=["res://.godot/imported/olho.dialogue-5e95e9f1ba557b99943db941ee62d448.tres"]
+
+[params]
+
+defaults=true
