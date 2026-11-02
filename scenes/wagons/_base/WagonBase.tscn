@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dk1v7tyddaga5" path="res://actors/camera/camera.gd" id="1_bbw8k"]
 [ext_resource type="Shader" uid="uid://bipadcge6ngus" path="res://scenes/wagons/_base/camera_bars.gdshader" id="2_ibxpv"]
 [ext_resource type="AudioStream" uid="uid://cvfureo2rf67c" path="res://scenes/wagons/_base/ambience.ogg" id="2_k0d4v"]
+[ext_resource type="AudioStream" uid="uid://cmtkj6vmdpv1u" path="res://actors/door/door_close.wav" id="4_5xdhe"]
+[ext_resource type="Script" uid="uid://cfmimwin0q2rc" path="res://scenes/wagons/_base/door_close.gd" id="5_ix0rh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0d4v"]
 shader = ExtResource("2_ibxpv")
@@ -84,3 +86,7 @@ process_mode = 1
 stream = ExtResource("2_k0d4v")
 volume_db = -10.0
 autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1840347835]
+stream = ExtResource("4_5xdhe")
+script = ExtResource("5_ix0rh")

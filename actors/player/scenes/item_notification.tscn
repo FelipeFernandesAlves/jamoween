@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://i6a7640hmqxl"]
+
+[ext_resource type="Script" uid="uid://dwey7q8d6sd81" path="res://actors/player/scenes/item_notification.gd" id="1_rj0et"]
+[ext_resource type="Texture2D" uid="uid://bquhw3uxyo018" path="res://_raw_assets/blood_saw.png" id="1_xunah"]
+
+[node name="ItemNotification" type="HBoxContainer" unique_id=503552342 node_paths=PackedStringArray("label", "texture_rect")]
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -100)
+theme_override_constants/separation = 18
+script = ExtResource("1_rj0et")
+label = NodePath("Label")
+texture_rect = NodePath("MarginContainer/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2138029351]
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=482735760]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_xunah")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1826760123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Serra ensanguentada +1"

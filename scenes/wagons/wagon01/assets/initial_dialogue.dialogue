@@ -14,6 +14,7 @@ do InitialCutscene.play_animation("blink")
 do wait(1.0)
 
 Erick: Dá tempo pra um cochilho.. Espero.
+do PersistenceKeyManager.set_key("sleeped", true)
 do InitialCutscene.play_animation("sleep")
 do wait(0.9)
 
@@ -23,6 +24,7 @@ Você escuta sons estranhos em seus sonhos e acorda desesperado.
 do InitialCutscene.change_world()
 
 do InitialCutscene.play_animation("wake")
+do PersistenceKeyManager.set_key("waked", true)
 O vagão está diferente, você vê formas grotescas viajando com você.
 
 do! InitialCutscene.surprise_emote()
