@@ -27,7 +27,7 @@ O vagão está diferente, você vê formas grotescas viajando com você.
 
 do! InitialCutscene.surprise_emote()
 
-Erick: AAAAAAAGH!!
+Erick: [shake rate=15 level=10]AAAAAAAGH!![/shake]
 Amigo Sombra: Cuidado garoto.
 Amigo Sombra: Eles vão perceber que esse não é seu lugar.
 Erick: Como assim meu lugar? Onde eu vim parar?

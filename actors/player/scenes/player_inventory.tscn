@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://xee7g8xntgvo"]
+
+[ext_resource type="Script" uid="uid://dxjwjge8nnmfk" path="res://actors/player/scripts/player_inventory.gd" id="1_w0f2s"]
+[ext_resource type="PackedScene" uid="uid://8uulymv4sj1u" path="res://actors/player/scenes/player_inventory_item.tscn" id="2_2acu3"]
+[ext_resource type="Script" uid="uid://bqfvrvncx5un2" path="res://actors/player/scenes/items_container.gd" id="3_lso4n"]
+[ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="3_yw6lc"]
+[ext_resource type="Resource" uid="uid://dvvarojgd7ulx" path="res://resources/items/blood_saw.tres" id="4_2vqx6"]
+[ext_resource type="Texture2D" uid="uid://bquhw3uxyo018" path="res://_raw_assets/blood_saw.png" id="5_yw6lc"]
+
+[sub_resource type="Theme" id="Theme_jg3c0"]
+HBoxContainer/constants/separation = 25
+Label/font_sizes/font_size = 24
+MarginContainer/constants/margin_bottom = 30
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 30
+
+[sub_resource type="Resource" id="Resource_1hd07"]
+script = ExtResource("3_yw6lc")
+name = "Desfraca"
+desc = "Sdasdadasdasdad"
+texture = ExtResource("5_yw6lc")
+metadata/_custom_type_script = "uid://tlhtrwmg3qaa"
+
+[node name="PlayerInventory" type="Control" unique_id=1603865267 node_paths=PackedStringArray("item_container", "item_name_label", "item_desc_label", "item_carrousel")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jg3c0")
+script = ExtResource("1_w0f2s")
+item_container = NodePath("ItemsContainer")
+item_name_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/ItemName")
+item_desc_label = NodePath("MarginContainer/VBoxContainer/VBoxContainer2/ItemDesc")
+player_item_packed = ExtResource("2_2acu3")
+item_carrousel = NodePath("ItemsContainer")
+debug_items = Array[ExtResource("3_yw6lc")]([ExtResource("4_2vqx6"), SubResource("Resource_1hd07")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1475578868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8627451)
+
+[node name="ItemsContainer" type="Control" parent="." unique_id=1323280322]
+custom_maximum_size = Vector2(1180, -1)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("3_lso4n")
+offset = Vector2(0, -30)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=171147332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=657561913]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 33
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=968433430]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1790477117]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1320715772]
+layout_mode = 2
+text = "Lorem Ipsum x3"
+horizontal_alignment = 1
+
+[node name="ItemDesc" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1288742021]
+custom_minimum_size = Vector2(100, 200)
+custom_maximum_size = Vector2(-1, 200)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper est in ante luctus mattis. Nulla facilisi. Sed tempus euismod ante, nec consectetur nunc mollis eu. Pellentesque non pharetra arcu, sed accumsan quam. Pellentesque ut porta ipsum. Vivamus porttitor mauris a nulla molestie, a eleifend mauris condimentum. Cras imperdiet rutrum lectus at accumsan"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=28648160]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "TAB - Voltar"

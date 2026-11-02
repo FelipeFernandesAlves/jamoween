@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b3pwmlql5kjg1"]
+
+[ext_resource type="Script" uid="uid://buyod3v07sk2o" path="res://menus/death/death_menu.gd" id="1_j8a80"]
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+Label/font_sizes/font_size = 42
+
+[sub_resource type="Animation" id="Animation_5oi8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j8a80"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afuo5"]
+_data = {
+&"RESET": SubResource("Animation_5oi8u"),
+&"show": SubResource("Animation_j8a80")
+}
+
+[node name="DeathMenu" type="Control" unique_id=1502628460]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_g4v7s")
+script = ExtResource("1_j8a80")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=204064194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996015, 1)
+color = Color(0.64705884, 0.1882353, 0.1882353, 0.74509805)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1356979975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1915983547]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=977415502]
+layout_mode = 2
+text = "VOCÊ MORREU"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=234432205]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "pressione \"R\" para voltar"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1552936015]
+libraries/ = SubResource("AnimationLibrary_afuo5")
+autoplay = &"show"

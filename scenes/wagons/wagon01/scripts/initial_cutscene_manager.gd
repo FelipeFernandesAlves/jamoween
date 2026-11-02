@@ -18,9 +18,8 @@ func start():
 	player.interaction_context.can_interact = false
 	await get_tree().create_timer(1.5).timeout
 	DialogueManager.show_dialogue_balloon(initial_dialogue)
-
-	for i in otherworld_items:
-		i.visible = false
+	camera.animation_player.play("black_bars")
+	hide_world()
 
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("interact")):
@@ -28,11 +27,15 @@ func _input(event: InputEvent) -> void:
 
 func end():
 	camera.use_subway_shake = false
+	camera.animation_player.play_backwards("black_bars")
 	var tween = create_tween()
 	tween.set_ease(tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUART)
 	tween.tween_property(camera, "zoom", Vector2.ONE, 1.0)
 	player.interaction_context.can_interact = true
+	PersistenceKeyManager.set_key("seen_first_cutscene", true)
+	if (!PersistenceKeyManager.get("world_changed")):
+		change_world()
 
 	get_tree().paused = false
 
@@ -62,3 +65,8 @@ func surprise_emote():
 func change_world():
 	for i in otherworld_items:
 		i.visible = true
+	PersistenceKeyManager.set_key("world_changed", true)
+
+func hide_world():
+	for i in otherworld_items:
+		i.visible = false

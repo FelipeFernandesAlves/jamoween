@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b772fj4pdmyny"
+path="res://.godot/imported/possessive_spirit.dialogue-31995cebebc1637afc1b9c875a534f21.tres"
+
+[deps]
+
+source_file="res://actors/npc/possessive_spirit/possessive_spirit.dialogue"
+dest_files=["res://.godot/imported/possessive_spirit.dialogue-31995cebebc1637afc1b9c875a534f21.tres"]
+
+[params]
+
+defaults=true

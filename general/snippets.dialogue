@@ -1,0 +1,5 @@
+~ player_death
+do Player.animate_death()
+do SceneManager.instance.load_control("res://menus/death/DeathMenu.tscn")
+
+=> END

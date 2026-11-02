@@ -1,0 +1,97 @@
+import "res://general/snippets.dialogue" as snippets
+
+~ start
+if (!PersistenceKeyManager.check("has_talked_to_passage_spirit", true)):
+	Espírito no Caminho: Você..
+	Espírito no Caminho: Essas roupas...
+	Espírito no Caminho: Você deve ter vindo de onde eu vim.
+	- De onde você veio?
+		Erick: Hmm.. Talvez eu tenha. De onde você veio?
+		Espírito no Caminho: Argh.. De onde eu vim? Bem, é claro que.. ergh, eu acho que..
+		Espírito no Caminho: Eu não sei. Não sei de onde eu vim.
+		Espírito no Caminho: Mas eu tenho que voltar, preciso voltar.
+		Espírito no Caminho: Se eu não estiver lá, quem é que vai fazer o que eu faço?
+		Espírito no Caminho: Tenho bocas para alimetar, muitas bocas.
+	- Claro!
+		Erick: Com certeza! De lá mesmo!
+		Espírito no Caminho: Eu sabia! Eu sou mais esperto do que pareço, sempre fui.
+		Espírito no Caminho: Por isso eu preciso voltar pra lá, se não for eu, quem é que vai fazer o que eu faço?
+		Espírito no Caminho: Tenho bocas para alimetar, muitas bocas.
+	Erick: Eu preciso ir até o maquinista, ele vai me tirar daqui. Talvez consiga te ajudar também.
+	Espírito no Caminho: O maquinista? Claro, faz sentido.
+	Espírito no Caminho: Mas não importa o quanto eu tente, essa porta não abre!
+	do PersistenceKeyManager.set_key("has_talked_to_passage_spirit", true)
+Espírito no Caminho: Isso não pode estar acontecendo, não agora! Eu preciso voltar, tenho que voltar.
+if (InventoryManager.has_item("Serra Ensanguentada")):
+	- Mostrar Serra
+		Erick: Ei! Eu achei isso ali, você acha que pode ajudar a abrir a porta?
+		Espírito no Caminho: O que?
+		O espírito diante da porta vira para você. Algo visivelmente muda em seu olhar.
+		Espírito no Caminho: Isso.. não, não..
+		Ele encosta levemente na serra em sua mão. Apesar de não ser humano, essa criatura está claramente sofrendo. Ele involuntariamente leva sua outra mão à testa.
+		- O que aconteceu?
+			Espírito no Caminho: Eu lembro disso..
+			Espírito no Caminho: Me diga, como posso aceitar isso? Como posso ir em paz sabendo que outros ainda esperam por mim?
+			Espírito no Caminho: Eu não posso, não consigo. Como você consegue, com você veio parar aqui?
+			- Eu dormi e acordei aqui
+				Espírito no Caminho: O QUE? Espera.. Você parece.. vivo demais.
+				Você sente algo estranho dentro de você. Seu estômago cai enquanto um frio gélido te assombra.
+				Espírito no Caminho: Eu não posso ir ainda. Você me entende né?
+				Erick: [shake rate=20 level=10]AAAAAAAAAAAAAAAAAAAARHG[/shake]
+				=> snippets/player_death
+			- Uma serra me acertou na cabeça
+				Espírito no Caminho: Heh, acho que isso aconteceu comigo né?
+				Espírito no Caminho: ...
+				Espírito no Caminho: Não acho que estou mais perto delas aqui. Já estou esperando a muito tempo para saber que..
+				Espírito no Caminho: Não tem volta para mim.
+				Erick: ... Eu.. Sinto muito.
+				Espírito no Caminho: Se você encontrar elas algum dia, diga que sinto saudades.
+				Espírito no Caminho: Elas tem o meu rosto, vai reconhecer na hora.
+				=> spirit_death
+			- Eu tomei um tiro.
+				Espírito no Caminho: Um tiro em?
+				Erick: É, foi feia a coisa.
+				Espírito no Caminho: E como foi a [wave amp=10 freq=5]coisa[/wave]?
+				Erick: Eu tomei um tiro no peito de um homem correndo de um clube de luta. Todos ali perto se juntaram em volta de mim. Lembro dos rostos preocupados deles procurando ajuda. Mas foi tarde demais.
+				Erick: A última coisa que me lembro é do meu sobrinho, que veio logo atrás do homem que me matou..
+				Espírito no Caminho: .. Entendo
+				Espírito no Caminho: Todos temos razões únicas para estarmos aqui, pelo que vejo. Mas ninguém nunca sai.
+				Espírito no Caminho: Não enquanto permitimos que o passado nos acorrente.
+				Espírito no Caminho: ... Eu não posso fazer com que as pessoas que amo sejam minhna sina eterna.
+				Erick: ... Eu.. Sinto muito.
+				Espírito no Caminho: ... Eu não acho que estou mais perto delas aqui. Já estou esperando a muito tempo para saber que..
+				Espírito no Caminho: Não tem volta para mim.
+				Espírito no Caminho: Se você encontrar elas algum dia, diga que sinto saudades.
+				Espírito no Caminho: Elas tem o meu rosto, vai reconhecer na hora.
+				=> spirit_death
+			- Não sei
+				Espírito no Caminho: Huh..
+				Espírito no Caminho: Você acabou de chegar não é?
+				Espírito no Caminho: Você vai lembrando aos poucos, acontece com todo mundo.
+				Espírito no Caminho: Mesmo agora eu não lembro de muita coisa. De quase nada, pra ser sincero.
+				- Sinto muito
+					Erick: ... Eu.. Sinto muito.
+					Espírito no Caminho: ... Eu não acho que estou mais perto delas aqui. Já estou esperando a muito tempo para saber que..
+					Espírito no Caminho: Não tem volta para mim.
+					Espírito no Caminho: Se você encontrar elas algum dia, diga que sinto saudades.
+					Espírito no Caminho: Elas tem o meu rosto, vai reconhecer na hora.
+					=> spirit_death
+				- Do que você se lembra?
+					Espírito no Caminho: Agora que trouxe a serra, me lembro melhor. Lembro dos zunidos, do cheiro forte de resina. Lembro do sangue em minha cabeça.
+					Erick: ...
+					Espírito no Caminho: ... Eu não acho que estou mais perto delas aqui. Já estou esperando a muito tempo para saber que..
+					Espírito no Caminho: Não tem volta para mim.
+					Espírito no Caminho: Se você encontrar elas algum dia, diga que sinto saudades.
+					Espírito no Caminho: Elas tem o meu rosto, vai reconhecer na hora.
+					=> spirit_death
+					
+	- Não fazer nada
+		=> END
+else:
+	=> END
+
+~ spirit_death
+do PassageSpirit.animate_vanish()
+do PersistenceKeyManager.set_key("passage_spirit_vanished", true)
+
+=> END

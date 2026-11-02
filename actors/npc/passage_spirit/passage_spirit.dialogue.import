@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bs72umv1sl8e"
+path="res://.godot/imported/passage_spirit.dialogue-0bcd901647178d23c42b1eb375712fc6.tres"
+
+[deps]
+
+source_file="res://actors/npc/passage_spirit/passage_spirit.dialogue"
+dest_files=["res://.godot/imported/passage_spirit.dialogue-0bcd901647178d23c42b1eb375712fc6.tres"]
+
+[params]
+
+defaults=true

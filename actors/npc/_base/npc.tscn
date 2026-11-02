@@ -12,11 +12,13 @@ shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_thickness = 0.5
 shader_parameter/active = true
 
-[node name="Npc" type="CharacterBody2D" unique_id=587563385 node_paths=PackedStringArray("interactable")]
+[node name="Npc" type="CharacterBody2D" unique_id=587563385 node_paths=PackedStringArray("interactable", "dialogue_icon", "dialogue_sine")]
 material = SubResource("ShaderMaterial_5stno")
 script = ExtResource("2_c6sos")
 interactable = NodePath("Interactable")
 outline_shader = ExtResource("1_ula8y")
+dialogue_icon = NodePath("TextureRect")
+dialogue_sine = NodePath("TextureRect/Sine")
 metadata/_custom_type_script = "uid://ct81wxg11smfp"
 
 [node name="Interactable" type="Node" parent="." unique_id=1399007017 node_paths=PackedStringArray("target")]

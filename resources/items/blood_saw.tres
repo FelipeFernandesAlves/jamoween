@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dvvarojgd7ulx"]
+
+[ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="1_quq1a"]
+[ext_resource type="Texture2D" uid="uid://bquhw3uxyo018" path="res://_raw_assets/blood_saw.png" id="2_2b3ig"]
+
+[resource]
+script = ExtResource("1_quq1a")
+name = "Serra Ensanguentada"
+desc = "Resenha absurdaaa"
+texture = ExtResource("2_2b3ig")
+metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

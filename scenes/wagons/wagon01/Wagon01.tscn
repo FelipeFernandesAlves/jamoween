@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://biimf6bl768ar" path="res://scenes/wagons/wagon01/assets/clock_ring.wav" id="6_biehm"]
 [ext_resource type="AudioStream" uid="uid://cx0pi2omuvmcs" path="res://scenes/wagons/wagon01/assets/world_transition.ogg" id="7_gq28w"]
 [ext_resource type="PackedScene" uid="uid://dwtj3myrtjyf6" path="res://actors/npc/friend_shadow/friend_shadow.tscn" id="11_te70j"]
+[ext_resource type="PackedScene" uid="uid://5wbndti14pmx" path="res://actors/npc/passage_spirit/PassageSpirit.tscn" id="12_1ofxt"]
+[ext_resource type="PackedScene" uid="uid://b167rjd31i0mn" path="res://actors/npc/possessive_spirit/PossessiveSpirit.tscn" id="13_jgcft"]
 
 [sub_resource type="Animation" id="Animation_biehm"]
 length = 0.001
@@ -102,6 +104,10 @@ size = Vector2(1582, 922)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 156.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0u6y"]
+
 [node name="Wagon01" unique_id=1777152443 node_paths=PackedStringArray("initial_cutscene_manager") instance=ExtResource("1_7opgk")]
 script = ExtResource("2_nxa5s")
 initial_cutscene_manager = NodePath("InitialCutsceneManager")
@@ -117,7 +123,7 @@ sounds = {
 "horror_sting": NodePath("HorrorSting"),
 "world_transition": NodePath("WorldTransition")
 }
-otherworld_items = [NodePath("../Entities/Npc")]
+otherworld_items = [NodePath("../Entities/Npc"), NodePath("../Entities/Npc2"), NodePath("../Entities/PossessiveSpirit")]
 emote = ExtResource("5_72yvy")
 emote_mark = NodePath("../Entities/Player/SurpriseMark")
 
@@ -201,7 +207,6 @@ position = Vector2(372, 156)
 position = Vector2(0, -36)
 
 [node name="Npc" parent="Entities" index="1" unique_id=587563385 node_paths=PackedStringArray("interaction_area") instance=ExtResource("11_te70j")]
-visible = false
 material = SubResource("ShaderMaterial_rwlap")
 position = Vector2(492, 156)
 interaction_area = NodePath("Area2D")
@@ -211,3 +216,29 @@ interaction_area = NodePath("Area2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Npc/Area2D" index="0" unique_id=1627248795]
 visible = false
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Npc2" parent="Entities" index="2" unique_id=1795019780 node_paths=PackedStringArray("interaction_area") instance=ExtResource("12_1ofxt")]
+position = Vector2(1296, 378)
+interaction_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Entities/Npc2" index="3" unique_id=1242405218]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Npc2/Area2D" index="0" unique_id=202610618]
+scale = Vector2(18.638624, 18.638624)
+shape = SubResource("CircleShape2D_57qmd")
+
+[node name="DialogueStateContext" type="Node" parent="Entities/Npc2" index="5" unique_id=272339184 node_paths=PackedStringArray("target")]
+script = ExtResource("4_fci6v")
+alias = "PassageSpirit"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+
+[node name="PossessiveSpirit" parent="Entities" index="3" unique_id=1884458967 node_paths=PackedStringArray("interaction_area") instance=ExtResource("13_jgcft")]
+position = Vector2(-48, 426)
+interaction_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Entities/PossessiveSpirit" index="4" unique_id=2000777866]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/PossessiveSpirit/Area2D" index="0" unique_id=1475590195]
+scale = Vector2(16.865322, 16.865322)
+shape = SubResource("CircleShape2D_d0u6y")

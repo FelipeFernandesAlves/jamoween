@@ -14,9 +14,11 @@ var shake_time_speed: float = 20.0
 
 var noise = FastNoiseLite.new()
 
+@export var animation_player: AnimationPlayer
+
 @export_group("Subway Shake Settings")
-@export var subway_shake_speed: float = 15.0       # Velocidade da oscilação
-@export var subway_shake_strength: float = 3.0     # Intensidade máxima do balanço (em pixels/unidades)
+@export var subway_shake_speed: float = 15.0
+@export var subway_shake_strength: float = 3.0
 
 var subway_noise: FastNoiseLite
 var use_subway_shake := true

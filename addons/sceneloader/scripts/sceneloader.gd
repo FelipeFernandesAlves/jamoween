@@ -65,23 +65,24 @@ func load_control(_scene_path: String):
 	if (!control_parent):
 		return
 	
+	await load_scene(_scene_path, control_parent)
+	await load_finished
+	
 	if (current_control_scene):
 		current_control_scene.queue_free()
 	
-	load_scene(_scene_path, control_parent)
-	await load_finished
 	current_control_scene = loaded_resource_instance
 	control_loaded.emit()
 
 func load_node2D(_scene_path: String):
 	if (!node2d_parent):
 		return
-	
+
+	await load_scene(_scene_path, node2d_parent, true)	
+	await load_finished
+
 	if (current_node2D_scene):
 		current_node2D_scene.queue_free()
-	
-	load_scene(_scene_path, node2d_parent, true)
-	await load_finished
 	current_node2D_scene = loaded_resource_instance
 	node2D_loaded.emit()
 
@@ -89,11 +90,12 @@ func load_node(_scene_path: String):
 	if (!node_parent):
 		return
 
+	await load_scene(_scene_path, node_parent)
+	await load_finished
+
 	if (current_node_scene):
 		current_node_scene.queue_free()
-	
-	load_scene(_scene_path, node_parent)
-	await load_finished
+
 	current_node_scene = loaded_resource_instance
 	node_loaded.emit()
 

@@ -38,3 +38,9 @@ func _on_focus_in():
 func _on_focus_out():
 	sprites.material.set_shader_parameter("active", false)
 	dialogue_icon.visible = false
+
+func animate_vanish():
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "modulate:a", 0.0, 2.0)
+	tween.tween_callback(queue_free)
