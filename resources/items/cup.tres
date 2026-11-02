@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://conmix1m4c1md"]
 
 [ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="1_jeerq"]
+[ext_resource type="Texture2D" uid="uid://kifuhbdyirw3" path="res://resources/items/cup.png" id="2_ja2u6"]
 
 [resource]
 script = ExtResource("1_jeerq")
 name = "Copo"
 desc = "Um copo vazio"
+texture = ExtResource("2_ja2u6")
 metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

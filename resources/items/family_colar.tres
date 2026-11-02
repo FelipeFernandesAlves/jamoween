@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://com1hbxxcd3fg"]
 
 [ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="1_3v34a"]
+[ext_resource type="Texture2D" uid="uid://bpekftoxkmsaa" path="res://resources/items/colar.png" id="2_clix8"]
 
 [resource]
 script = ExtResource("1_3v34a")
 name = "Colar de Família"
 desc = "Um colar com uma família aparentemente feliz. Um casal está segurando uma criança pequena no colo."
+texture = ExtResource("2_clix8")
 metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

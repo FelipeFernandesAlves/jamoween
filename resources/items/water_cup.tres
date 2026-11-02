@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://by2kxwlj55xwv"]
 
 [ext_resource type="Script" uid="uid://tlhtrwmg3qaa" path="res://resources/items/_base.gd" id="1_or73g"]
+[ext_resource type="Texture2D" uid="uid://b86jr6hdbhtqa" path="res://resources/items/cupwater.png" id="2_03ea5"]
 
 [resource]
 script = ExtResource("1_or73g")
 name = "Copo (com água)"
 desc = "Glub glub globers"
+texture = ExtResource("2_03ea5")
 metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

@@ -29,5 +29,5 @@ func _start_game():
 	if (splash_screen_instance):
 		splash_screen_instance.queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

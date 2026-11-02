@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="2_mjiei"]
 [ext_resource type="PackedScene" uid="uid://cb311bsv1qin6" path="res://actors/door/Door.tscn" id="3_f1gv8"]
 [ext_resource type="PackedScene" uid="uid://ck6ykq43m50gg" path="res://actors/scene_item/scene_item.tscn" id="4_jkxjg"]
-[ext_resource type="Texture2D" uid="uid://cjbdus6emsf81" path="res://_raw_assets/filtro.png" id="5_0vb02"]
 [ext_resource type="Resource" uid="uid://ug1h2e4k0qpo" path="res://scenes/wagons/wagon02/filtro.dialogue" id="5_4cos3"]
+[ext_resource type="Texture2D" uid="uid://drbpm1e48qgqu" path="res://_raw_assets/agua.png" id="6_4cos3"]
 [ext_resource type="PackedScene" uid="uid://dhrcfae6g5k58" path="res://actors/npc/couple/Couple.tscn" id="7_4cos3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0d"]
@@ -18,7 +18,7 @@ size = Vector2(125.77325, 36.38823)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_0vb02")
+"texture": ExtResource("6_4cos3")
 }],
 "loop": 1,
 "name": &"default",
