@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bv0w2irgm0wwm"
+path="res://.godot/imported/initial_dialogue.dialogue-9bde01aa58feff92400301026c947201.tres"
+
+[deps]
+
+source_file="res://scenes/wagons/wagon01/assets/initial_dialogue.dialogue"
+dest_files=["res://.godot/imported/initial_dialogue.dialogue-9bde01aa58feff92400301026c947201.tres"]
+
+[params]
+
+defaults=true

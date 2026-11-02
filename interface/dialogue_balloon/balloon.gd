@@ -23,6 +23,10 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+@export var skip_bar: TextureProgressBar
+@export var skip_container: Control
+var skip_dialogue_progress := 0.0
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -34,7 +38,6 @@ var will_hide_balloon: bool = false
 
 ## A dictionary to store any ephemeral variables
 var locals: Dictionary = {}
-
 var _locale: String = TranslationServer.get_locale()
 
 ## The current line
@@ -74,6 +77,7 @@ var mutation_cooldown: Timer = Timer.new()
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	skip_dialogue_progress = 0.0
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
@@ -89,9 +93,26 @@ func _ready() -> void:
 
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
+	
+	if (Input.is_action_pressed("skip_dialogue") && dialogue_resource.cues.has("END")):
+		skip_dialogue_progress += delta * 50.0
+	else:
+		skip_dialogue_progress -= delta * 50.0
+	
+	skip_dialogue_progress = clamp(skip_dialogue_progress, 0.0, 100.0)
+	skip_bar.value = skip_dialogue_progress
+
+	if (skip_dialogue_progress > 0.0):
+		skip_container.show()
+	else:
+		skip_container.hide()
+	
+	if (skip_dialogue_progress >= 100.0):
+		start(dialogue_resource, "END")	
+
 
 
 func _unhandled_input(_event: InputEvent) -> void:

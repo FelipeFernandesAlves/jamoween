@@ -12,6 +12,7 @@ extends Node
 		target = value
 
 @export var interaction_input: StringName = "ui_accept"
+@export var can_interact: bool: set = _set_can_interact
 
 func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed(interaction_input)):
@@ -21,7 +22,16 @@ func _unhandled_input(event: InputEvent) -> void:
 func _enter_tree() -> void:
 	if (target):
 		InteractionManager.add_context_body(target)
+	
+	_set_can_interact(can_interact)
 
 func _exit_tree() -> void:
 	if (target):
 		InteractionManager.remove_context_body(target)
+	
+func _set_can_interact(value: bool):
+	if (target):
+		if (value):
+			InteractionManager.add_context_body(target)
+		else:
+			InteractionManager.remove_context_body(target)

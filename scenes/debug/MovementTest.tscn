@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="1_gx12f"]
 [ext_resource type="Script" uid="uid://dk1v7tyddaga5" path="res://actors/camera/camera.gd" id="2_3ooxk"]
 [ext_resource type="Texture2D" uid="uid://newgxs8jw1cv" path="res://icon.svg" id="3_5xgnv"]
-[ext_resource type="Shader" uid="uid://crg2lboh1pen5" path="res://transition.gdshader" id="4_c8fcu"]
+[ext_resource type="Shader" uid="uid://crg2lboh1pen5" path="res://general/assets/transition.gdshader" id="4_c8fcu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("4_c8fcu")

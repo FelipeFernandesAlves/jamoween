@@ -1,0 +1,50 @@
+~ start
+Você está no metrô para casa, escutando música.
+Foi um longo dia de trabalho e você sobreviveu por um triz.
+Erick: ...
+Erick: Falta muito pra chegar em casa?
+
+do InitialCutscene.play_sound("clock", true)
+do wait(0.8)
+
+Erick: Pelo menos mais meia hora...
+do wait(0.8)
+
+do InitialCutscene.play_animation("blink")
+do wait(1.0)
+
+Erick: Dá tempo pra um cochilho.. Espero.
+do InitialCutscene.play_animation("sleep")
+do wait(0.9)
+
+Tem alguma coisa errada.
+do InitialCutscene.play_sound("world_transition")
+Você escuta sons estranhos em seus sonhos e acorda desesperado.
+do InitialCutscene.change_world()
+
+do InitialCutscene.play_animation("wake")
+O vagão está diferente, você vê formas grotescas viajando com você.
+
+do! InitialCutscene.surprise_emote()
+
+Erick: AAAAAAAGH!!
+Amigo Sombra: Cuidado garoto.
+Amigo Sombra: Eles vão perceber que esse não é seu lugar.
+Erick: Como assim meu lugar? Onde eu vim parar?
+Amigo Sombra: Não sei muito mais que você, por isso estou aqui. Mas sei que você não vai gostar do que vai acontecer se os outros daqui te ouvirem gritando assim.
+Amigo Sombra: Acredite em mim, não vai ser agradável.
+Erick: Merda!
+Erick: Eu preciso sair daqui urgente, tenho três horas pra descansar por dia! Três Horas!
+Erick: E.. E amanhã eu tenho que voltar pro trabalho! Eu duvido que onde quer que estamos indo me dê um atestado.
+Erick: Quem eu quero convencer? Isso é um sonho mesmo. Melhor acordar antes que eu passe do meu ponto.
+Amigo Sombra: O Maquinista.
+Erick: Eim?
+Amigo Sombra: Vá até o maquinista, ele vai te levar para casa.
+Erick: ...
+Erick: Eu.. Vou tentar.
+Amigo Sombra: E cuidado com os outros.
+Erick: Pode crer.
+
+~ END
+do InitialCutscene.end()
+=> END

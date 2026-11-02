@@ -18,8 +18,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(94, 14)
 
-[node name="Player" type="CharacterBody2D" unique_id=434478635]
+[sub_resource type="Theme" id="Theme_jg3c0"]
+Label/font_sizes/font_size = 24
+MarginContainer/constants/margin_bottom = 30
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 30
+
+[node name="Player" type="CharacterBody2D" unique_id=434478635 node_paths=PackedStringArray("interaction_context") groups=["player"]]
 script = ExtResource("1_ehwws")
+interaction_context = NodePath("InteractionContext")
 
 [node name="InteractionContext" type="Node" parent="." unique_id=582707212 node_paths=PackedStringArray("target")]
 script = ExtResource("2_dthho")
@@ -33,3 +41,62 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166386184]
 position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="InventoryLayer" type="CanvasLayer" parent="." unique_id=442369109]
+layer = 10
+
+[node name="Control" type="Control" parent="InventoryLayer" unique_id=1431023550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jg3c0")
+
+[node name="ColorRect" type="ColorRect" parent="InventoryLayer/Control" unique_id=953321225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryLayer/Control" unique_id=1293570785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="InventoryLayer/Control/MarginContainer" unique_id=1648933523]
+layout_mode = 2
+
+[node name="ItemsContainer" type="HBoxContainer" parent="InventoryLayer/Control/MarginContainer/CenterContainer" unique_id=839801739]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="InventoryLayer/Control/MarginContainer/CenterContainer/ItemsContainer" unique_id=87366273]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryLayer/Control/MarginContainer" unique_id=534996285]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryLayer/Control/MarginContainer/HBoxContainer" unique_id=110147397]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="InventoryLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=584364276]
+layout_mode = 2
+text = "Lorem Ipsum x3"
+horizontal_alignment = 1
+
+[node name="ItemDesc" type="Label" parent="InventoryLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1600208125]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed semper est in ante luctus mattis. Nulla facilisi. Sed tempus euismod ante, nec consectetur nunc mollis eu. Pellentesque non pharetra arcu, sed accumsan quam. Pellentesque ut porta ipsum. Vivamus porttitor mauris a nulla molestie, a eleifend mauris condimentum. Cras imperdiet rutrum lectus at accumsan"
+horizontal_alignment = 1
+autowrap_mode = 2

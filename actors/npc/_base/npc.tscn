@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dd5yock0wsy00"]
+
+[ext_resource type="Shader" uid="uid://btc7w8lh0pvd2" path="res://general/assets/outline.gdshader" id="1_ula8y"]
+[ext_resource type="Script" uid="uid://ct81wxg11smfp" path="res://actors/npc/_base/npc.gd" id="2_c6sos"]
+[ext_resource type="Script" uid="uid://bh0biok6o5qud" path="res://addons/interactables/scripts/interactable.gd" id="3_d1cpy"]
+[ext_resource type="Texture2D" uid="uid://i6a78ptqdiko" path="res://actors/npc/_base/dialogue_icon.png" id="4_c6sos"]
+[ext_resource type="Script" uid="uid://cb0s7im2ou07g" path="res://addons/shy_juice_box/sine/sine.gd" id="5_d1cpy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5stno"]
+shader = ExtResource("1_ula8y")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.5
+shader_parameter/active = true
+
+[node name="Npc" type="CharacterBody2D" unique_id=587563385 node_paths=PackedStringArray("interactable")]
+material = SubResource("ShaderMaterial_5stno")
+script = ExtResource("2_c6sos")
+interactable = NodePath("Interactable")
+outline_shader = ExtResource("1_ula8y")
+metadata/_custom_type_script = "uid://ct81wxg11smfp"
+
+[node name="Interactable" type="Node" parent="." unique_id=1399007017 node_paths=PackedStringArray("target")]
+script = ExtResource("3_d1cpy")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://bh0biok6o5qud"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=335960852]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -54.0
+offset_right = 30.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(30, 54)
+offset_transform_enabled = true
+texture = ExtResource("4_c6sos")
+
+[node name="Sine" type="Node" parent="TextureRect" unique_id=26943216]
+script = ExtResource("5_d1cpy")
+magnitude = 3.0
+period = 0.5
+metadata/_custom_type_script = "uid://cb0s7im2ou07g"

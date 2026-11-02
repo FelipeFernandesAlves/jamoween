@@ -1,13 +1,16 @@
 [gd_scene format=4 uid="uid://d1iwr7kukwxhs"]
 
 [ext_resource type="PackedScene" uid="uid://ch16n48kxrjtu" path="res://scenes/wagons/_base/WagonBase.tscn" id="1_7opgk"]
-[ext_resource type="Script" uid="uid://dp0qf4dap65ir" path="res://scenes/wagons/wagon01/wagon_01.gd" id="2_nxa5s"]
+[ext_resource type="Script" uid="uid://dp0qf4dap65ir" path="res://scenes/wagons/wagon01/scripts/wagon_01.gd" id="2_nxa5s"]
 [ext_resource type="TileSet" uid="uid://dsndh0ohum6ol" path="res://scenes/wagons/_base/tileset.tres" id="2_vlugw"]
 [ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="3_nxa5s"]
-[ext_resource type="Script" uid="uid://dam3ioaqnl5v0" path="res://scenes/wagons/wagon01/initial_cutscene_manager.gd" id="3_ulkxd"]
-[ext_resource type="Resource" uid="uid://bv0w2irgm0wwm" path="res://dialogues/InitialCutscene.dialogue" id="4_biehm"]
+[ext_resource type="Script" uid="uid://dam3ioaqnl5v0" path="res://scenes/wagons/wagon01/scripts/initial_cutscene_manager.gd" id="3_ulkxd"]
+[ext_resource type="Resource" uid="uid://bv0w2irgm0wwm" path="res://scenes/wagons/wagon01/assets/initial_dialogue.dialogue" id="4_biehm"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="4_fci6v"]
-[ext_resource type="AudioStream" uid="uid://biimf6bl768ar" path="res://scenes/wagons/wagon01/clock_ring.wav" id="6_biehm"]
+[ext_resource type="PackedScene" uid="uid://bg5bkqem7txng" path="res://actors/emote/Emote.tscn" id="5_72yvy"]
+[ext_resource type="AudioStream" uid="uid://biimf6bl768ar" path="res://scenes/wagons/wagon01/assets/clock_ring.wav" id="6_biehm"]
+[ext_resource type="AudioStream" uid="uid://cx0pi2omuvmcs" path="res://scenes/wagons/wagon01/assets/world_transition.ogg" id="7_gq28w"]
+[ext_resource type="PackedScene" uid="uid://dwtj3myrtjyf6" path="res://actors/npc/friend_shadow/friend_shadow.tscn" id="11_te70j"]
 
 [sub_resource type="Animation" id="Animation_biehm"]
 length = 0.001
@@ -54,11 +57,27 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_te70j"]
+resource_name = "wake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72yvy"]
 _data = {
 &"RESET": SubResource("Animation_biehm"),
 &"blink": SubResource("Animation_gq28w"),
-&"sleep": SubResource("Animation_72yvy")
+&"sleep": SubResource("Animation_72yvy"),
+&"wake": SubResource("Animation_te70j")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
@@ -78,17 +97,29 @@ normal = Vector2(-1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21bkw"]
 size = Vector2(1582, 922)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwlap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 156.0
+
 [node name="Wagon01" unique_id=1777152443 node_paths=PackedStringArray("initial_cutscene_manager") instance=ExtResource("1_7opgk")]
 script = ExtResource("2_nxa5s")
 initial_cutscene_manager = NodePath("InitialCutsceneManager")
 
-[node name="InitialCutsceneManager" type="Node" parent="." index="0" unique_id=1287619553 node_paths=PackedStringArray("camera", "player", "animation_player", "clock_sfx")]
+[node name="InitialCutsceneManager" type="Node" parent="." index="0" unique_id=1287619553 node_paths=PackedStringArray("camera", "player", "animation_player", "sounds", "otherworld_items", "emote_mark")]
 script = ExtResource("3_ulkxd")
 camera = NodePath("../Camera")
 player = NodePath("../Entities/Player")
 initial_dialogue = ExtResource("4_biehm")
 animation_player = NodePath("AnimationPlayer")
-clock_sfx = NodePath("AudioStreamPlayer")
+sounds = {
+"clock": NodePath("Clock"),
+"horror_sting": NodePath("HorrorSting"),
+"world_transition": NodePath("WorldTransition")
+}
+otherworld_items = [NodePath("../Entities/Npc")]
+emote = ExtResource("5_72yvy")
+emote_mark = NodePath("../Entities/Player/SurpriseMark")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InitialCutsceneManager" index="0" unique_id=1833978638]
 libraries/ = SubResource("AnimationLibrary_72yvy")
@@ -99,11 +130,16 @@ alias = "InitialCutscene"
 target = NodePath("..")
 metadata/_custom_type_script = "uid://cd3222nx3y3k5"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InitialCutsceneManager" index="2" unique_id=600635960]
+[node name="Clock" type="AudioStreamPlayer" parent="InitialCutsceneManager" index="2" unique_id=600635960]
 stream = ExtResource("6_biehm")
 bus = &"SFX"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="InitialCutsceneManager" index="3" unique_id=1376831001]
+[node name="WorldTransition" type="AudioStreamPlayer" parent="InitialCutsceneManager" index="3" unique_id=1374650690]
+stream = ExtResource("7_gq28w")
+
+[node name="HorrorSting" type="AudioStreamPlayer" parent="InitialCutsceneManager" index="4" unique_id=134613152]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="InitialCutsceneManager" index="5" unique_id=1376831001]
 layer = 20
 
 [node name="ColorRect" type="ColorRect" parent="InitialCutsceneManager/CanvasLayer" index="0" unique_id=700363774]
@@ -137,7 +173,10 @@ shape = SubResource("WorldBoundaryShape2D_nxa5s")
 position = Vector2(1344, 0)
 shape = SubResource("WorldBoundaryShape2D_0mb5a")
 
-[node name="CollisionShape2D" parent="CameraLimit" parent_id_path=PackedInt32Array(1307054044) index="0" unique_id=426174442]
+[node name="CameraLimit" parent="." index="3" unique_id=1307054044]
+visible = false
+
+[node name="CollisionShape2D" parent="CameraLimit" index="0" unique_id=426174442]
 position = Vector2(622, 387)
 shape = SubResource("RectangleShape2D_21bkw")
 
@@ -156,4 +195,19 @@ subway_shake_strength = 4.0
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" index="0" unique_id=434478635 instance=ExtResource("3_nxa5s")]
-position = Vector2(384, 178)
+position = Vector2(372, 156)
+
+[node name="SurpriseMark" type="Marker2D" parent="Entities/Player" index="3" unique_id=852692071]
+position = Vector2(0, -36)
+
+[node name="Npc" parent="Entities" index="1" unique_id=587563385 node_paths=PackedStringArray("interaction_area") instance=ExtResource("11_te70j")]
+visible = false
+material = SubResource("ShaderMaterial_rwlap")
+position = Vector2(492, 156)
+interaction_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Entities/Npc" index="3" unique_id=1945089385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Npc/Area2D" index="0" unique_id=1627248795]
+visible = false
+shape = SubResource("CircleShape2D_g4v7s")

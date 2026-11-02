@@ -7,6 +7,8 @@ var time: float
 var amp: float = 5
 var spd: float = 1.8
 
+var ended: bool = false
+
 signal splash_screen_ended()
 
 func _ready() -> void:
@@ -15,7 +17,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time += delta * spd
 	texture_rect.position.y = sin(time) * amp
-	if (Input.is_action_just_pressed("ui_accept")):
+	if (Input.is_action_just_pressed("ui_accept") && !ended):
+		ended = true
 		animation_player.stop()
 		on_end()
 

@@ -15,12 +15,17 @@ run/main_scene="uid://bc2q8gu8yble6"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://umka588axfer"
+
 [autoload]
 
 InteractionManager="*uid://b2heftae4gwn6"
 DialogueManager="*uid://c3rodes2l3gxb"
 PersistenceKeyManager="*uid://dwmym6f55la42"
 SceneManager="*uid://c6aii2yjm38jo"
+InventoryManager="*uid://c0byr2c7xrhfp"
 
 [dialogue_manager]
 
@@ -36,6 +41,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/interactables/plugin.cfg", "res://addons/menus/plugin.cfg", "res://addons/sceneloader/plugin.cfg", "res://addons/shy_juice_box/plugin.cfg", "res://addons/shysplashscreen/plugin.cfg")
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -69,10 +78,15 @@ interact={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+skip_dialogue={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/InitialCutscene.dialogue")
+locale/translations_pot_files=PackedStringArray("res://actors/npc/friend_shadow/friend_shadow.dialogue", "res://scenes/wagons/wagon01/assets/initial_dialogue.dialogue")
 
 [physics]
 

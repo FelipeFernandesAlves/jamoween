@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://biimf6bl768ar"
-path="res://.godot/imported/clock_ring.wav-d4297863590181d99aa3a04946798ec2.sample"
+path="res://.godot/imported/clock_ring.wav-b412c470715cfbb1f2c5a59086136db2.sample"
 
 [deps]
 
-source_file="res://scenes/wagons/wagon01/clock_ring.wav"
-dest_files=["res://.godot/imported/clock_ring.wav-d4297863590181d99aa3a04946798ec2.sample"]
+source_file="res://scenes/wagons/wagon01/assets/clock_ring.wav"
+dest_files=["res://.godot/imported/clock_ring.wav-b412c470715cfbb1f2c5a59086136db2.sample"]
 
 [params]
 

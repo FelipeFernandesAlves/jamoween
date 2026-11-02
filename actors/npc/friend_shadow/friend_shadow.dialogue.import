@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b80efk1wkfdjn"
+path="res://.godot/imported/friend_shadow.dialogue-a7a66efe2ea90c5a6d78abda9e7c0a2f.tres"
+
+[deps]
+
+source_file="res://actors/npc/friend_shadow/friend_shadow.dialogue"
+dest_files=["res://.godot/imported/friend_shadow.dialogue-a7a66efe2ea90c5a6d78abda9e7c0a2f.tres"]
+
+[params]
+
+defaults=true

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d0yvxwbq3liuu" path="res://interface/dialogue_balloon/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://clyrgjq8jh238" path="res://_raw_assets/skip_dialogue_prog.png" id="4_564y1"]
+[ext_resource type="Texture2D" uid="uid://dgofm6pf16j3u" path="res://_raw_assets/skip_dialogue.png" id="5_28v58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 content_margin_left = 20.0
@@ -113,9 +115,11 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
-[node name="ExampleBalloon" type="CanvasLayer" unique_id=38036521]
+[node name="ExampleBalloon" type="CanvasLayer" unique_id=38036521 node_paths=PackedStringArray("skip_bar", "skip_container")]
 layer = 100
 script = ExtResource("1_36de5")
+skip_bar = NodePath("Balloon/MarginContainer/HBoxContainer/TextureProgressBar")
+skip_container = NodePath("Balloon/MarginContainer")
 
 [node name="Balloon" type="Control" parent="." unique_id=154399927]
 unique_name_in_owner = true
@@ -212,6 +216,28 @@ polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=1602634471]
 libraries/ = SubResource("AnimationLibrary_1337t")
 autoplay = &"progress"
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=1932942510]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer" unique_id=1784900607]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Balloon/MarginContainer/HBoxContainer" unique_id=735588]
+texture_filter = 1
+layout_mode = 2
+fill_mode = 5
+texture_under = ExtResource("4_564y1")
+texture_over = ExtResource("5_28v58")
+texture_progress = ExtResource("4_564y1")
+tint_under = Color(0, 0, 0, 0.1764706)
+tint_progress = Color(0.87058824, 0.61960787, 0.25490198, 1)
+
+[node name="Label" type="Label" parent="Balloon/MarginContainer/HBoxContainer" unique_id=392657710]
+layout_mode = 2
+text = "Pular Cena"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1162558754]
 unique_name_in_owner = true
