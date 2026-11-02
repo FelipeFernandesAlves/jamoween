@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck6ykq43m50gg" path="res://actors/scene_item/scene_item.tscn" id="4_jkxjg"]
 [ext_resource type="Texture2D" uid="uid://cjbdus6emsf81" path="res://_raw_assets/filtro.png" id="5_0vb02"]
 [ext_resource type="Resource" uid="uid://ug1h2e4k0qpo" path="res://scenes/wagons/wagon02/filtro.dialogue" id="5_4cos3"]
+[ext_resource type="PackedScene" uid="uid://dhrcfae6g5k58" path="res://actors/npc/couple/Couple.tscn" id="7_4cos3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0d"]
 size = Vector2(125.77325, 36.38823)
@@ -24,6 +25,8 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0u6y"]
 
 [node name="WagonBase" unique_id=1777152443 instance=ExtResource("1_b1yjs")]
 
@@ -82,3 +85,13 @@ autoplay = "default"
 position = Vector2(0, 68)
 scale = Vector2(19.154606, 19.370556)
 shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="Couple" parent="." index="8" unique_id=1591888246 node_paths=PackedStringArray("interaction_area") instance=ExtResource("7_4cos3")]
+position = Vector2(1552, 382)
+interaction_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Couple" index="4" unique_id=394785796]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Couple/Area2D" index="0" unique_id=1207871182]
+scale = Vector2(21.799768, 21.799768)
+shape = SubResource("CircleShape2D_d0u6y")
