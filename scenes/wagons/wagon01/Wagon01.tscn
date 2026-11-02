@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dwtj3myrtjyf6" path="res://actors/npc/friend_shadow/friend_shadow.tscn" id="11_te70j"]
 [ext_resource type="PackedScene" uid="uid://5wbndti14pmx" path="res://actors/npc/passage_spirit/PassageSpirit.tscn" id="12_1ofxt"]
 [ext_resource type="PackedScene" uid="uid://b167rjd31i0mn" path="res://actors/npc/possessive_spirit/PossessiveSpirit.tscn" id="13_jgcft"]
+[ext_resource type="PackedScene" uid="uid://cb311bsv1qin6" path="res://actors/door/Door.tscn" id="14_1ps0d"]
 
 [sub_resource type="Animation" id="Animation_biehm"]
 length = 0.001
@@ -98,6 +99,9 @@ normal = Vector2(-1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21bkw"]
 size = Vector2(1582, 922)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gngh"]
+radius = 174.10342
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rwlap"]
 
@@ -200,13 +204,24 @@ subway_shake_strength = 4.0
 [node name="Entities" parent="." index="5" unique_id=586613649]
 y_sort_enabled = true
 
-[node name="Player" parent="Entities" index="0" unique_id=434478635 instance=ExtResource("3_nxa5s")]
+[node name="Door" parent="Entities" index="0" unique_id=1934608440 node_paths=PackedStringArray("interaction_area") instance=ExtResource("14_1ps0d")]
+position = Vector2(1344, 378)
+required_key = "passage_spirit_vanished"
+next_room_path = "res://scenes/wagons/wagon02/Wagon02.tscn"
+interaction_area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Entities/Door" index="4" unique_id=705994863]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Door/Area2D" index="0" unique_id=1973585610]
+shape = SubResource("CircleShape2D_3gngh")
+
+[node name="Player" parent="Entities" index="1" unique_id=434478635 instance=ExtResource("3_nxa5s")]
 position = Vector2(372, 156)
 
 [node name="SurpriseMark" type="Marker2D" parent="Entities/Player" index="3" unique_id=852692071]
 position = Vector2(0, -36)
 
-[node name="Npc" parent="Entities" index="1" unique_id=587563385 node_paths=PackedStringArray("interaction_area") instance=ExtResource("11_te70j")]
+[node name="Npc" parent="Entities" index="2" unique_id=587563385 node_paths=PackedStringArray("interaction_area") instance=ExtResource("11_te70j")]
 material = SubResource("ShaderMaterial_rwlap")
 position = Vector2(492, 156)
 interaction_area = NodePath("Area2D")
@@ -217,7 +232,7 @@ interaction_area = NodePath("Area2D")
 visible = false
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="Npc2" parent="Entities" index="2" unique_id=1795019780 node_paths=PackedStringArray("interaction_area") instance=ExtResource("12_1ofxt")]
+[node name="Npc2" parent="Entities" index="3" unique_id=1795019780 node_paths=PackedStringArray("interaction_area") instance=ExtResource("12_1ofxt")]
 position = Vector2(1296, 378)
 interaction_area = NodePath("Area2D")
 
@@ -233,7 +248,7 @@ alias = "PassageSpirit"
 target = NodePath("..")
 metadata/_custom_type_script = "uid://cd3222nx3y3k5"
 
-[node name="PossessiveSpirit" parent="Entities" index="3" unique_id=1884458967 node_paths=PackedStringArray("interaction_area") instance=ExtResource("13_jgcft")]
+[node name="PossessiveSpirit" parent="Entities" index="4" unique_id=1884458967 node_paths=PackedStringArray("interaction_area") instance=ExtResource("13_jgcft")]
 position = Vector2(-48, 426)
 interaction_area = NodePath("Area2D")
 

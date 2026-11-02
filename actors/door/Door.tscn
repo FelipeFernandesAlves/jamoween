@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cb311bsv1qin6"]
+
+[ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_5hfjc"]
+[ext_resource type="Texture2D" uid="uid://b7krt2h45hh5v" path="res://_raw_assets/item_selector.png" id="2_rhkvy"]
+[ext_resource type="Script" uid="uid://c6801r7drwfy6" path="res://actors/door/door.gd" id="2_xbqn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(81, 72)
+
+[node name="Door" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_5hfjc")]
+collision_layer = 2
+script = ExtResource("2_xbqn5")
+required_key = ""
+next_room_path = ""
+sprites = NodePath("AnimatedSprite2D")
+
+[node name="TextureRect" parent="." index="1" unique_id=335960852]
+offset_top = -115.0
+offset_bottom = -58.0
+texture = ExtResource("2_rhkvy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=676280440]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3" unique_id=1349471939]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g4v7s")
