@@ -2,28 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_kckwp"]
 [ext_resource type="Resource" uid="uid://b80efk1wkfdjn" path="res://actors/npc/friend_shadow/friend_shadow.dialogue" id="2_d1pfb"]
-[ext_resource type="Texture2D" uid="uid://ck6ory0hxg6bx" path="res://_raw_assets/friend_shadow.png" id="2_rb1t3"]
+[ext_resource type="Texture2D" uid="uid://c2vr6h1834fme" path="res://actors/npc/friend_shadow/friend_shadow.png" id="3_d1pfb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 47.0
 height = 94.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix5bn"]
+atlas = ExtResource("3_d1pfb")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck5r2"]
+atlas = ExtResource("3_d1pfb")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8x02"]
+atlas = ExtResource("3_d1pfb")
+region = Rect2(384, 0, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_rb1t3")
+"texture": SubResource("AtlasTexture_ix5bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck5r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8x02")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
-[node name="Npc" unique_id=587563385 node_paths=PackedStringArray("sprites", "dialogue_icon", "dialogue_sine") instance=ExtResource("1_kckwp")]
+[node name="Npc" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_kckwp")]
 interaction_dialogue = ExtResource("2_d1pfb")
 sprites = NodePath("AnimatedSprite2D")
-dialogue_icon = NodePath("TextureRect")
-dialogue_sine = NodePath("TextureRect/Sine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=372464338]
 shape = SubResource("CapsuleShape2D_g4v7s")
@@ -31,6 +47,8 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1482655227]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.26505306
 
 [node name="TextureRect" parent="." index="3" unique_id=335960852]
 offset_top = -115.0

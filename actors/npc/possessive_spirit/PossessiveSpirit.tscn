@@ -2,17 +2,63 @@
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_u7bnp"]
 [ext_resource type="Resource" uid="uid://b772fj4pdmyny" path="res://actors/npc/possessive_spirit/possessive_spirit.dialogue" id="2_62agw"]
-[ext_resource type="Texture2D" uid="uid://tmtbg482yqlg" path="res://_raw_assets/possessive_spirit.png" id="2_yskok"]
+[ext_resource type="Texture2D" uid="uid://bswnm7mqhhbic" path="res://actors/npc/possessive_spirit/possessive_sprite.png" id="3_62agw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myorw"]
+atlas = ExtResource("3_62agw")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a55d2"]
+atlas = ExtResource("3_62agw")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wigr7"]
+atlas = ExtResource("3_62agw")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43tyc"]
+atlas = ExtResource("3_62agw")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mf7p"]
+atlas = ExtResource("3_62agw")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waxnw"]
+atlas = ExtResource("3_62agw")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktlo6"]
+atlas = ExtResource("3_62agw")
+region = Rect2(1152, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yskok")
+"texture": SubResource("AtlasTexture_myorw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a55d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wigr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43tyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mf7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waxnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktlo6")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
@@ -28,6 +74,9 @@ offset_bottom = -51.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2" unique_id=1119833253]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 5
+frame_progress = 0.98172975
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3" unique_id=1635063909]
 position = Vector2(0, 32.5)
