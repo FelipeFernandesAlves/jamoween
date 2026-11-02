@@ -11,8 +11,11 @@ class_name InitialCutsceneManager extends Node
 @export var emote: PackedScene
 @export var emote_mark: Marker2D
 
+@export var normal_tile_map: TileMapLayer
+
 func start():
 	get_tree().paused = true
+	normal_tile_map.visible = true
 	camera.zoom = Vector2(1.5, 1.5)
 	camera.reset_camera()
 	player.interaction_context.can_interact = false
@@ -34,6 +37,7 @@ func end():
 	tween.tween_property(camera, "zoom", Vector2.ONE, 1.0)
 	player.interaction_context.can_interact = true
 	PersistenceKeyManager.set_key("seen_first_cutscene", true)
+	normal_tile_map.visible = false
 	if (!PersistenceKeyManager.get("world_changed")):
 		change_world()
 

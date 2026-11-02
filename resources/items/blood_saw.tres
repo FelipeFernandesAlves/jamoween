@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_quq1a")
 name = "Serra Ensanguentada"
-desc = "Resenha absurdaaa"
+desc = "Uma serra dentada usada em trabalhos de marcenaria. Algo não acabou bem para alguém."
 texture = ExtResource("2_2b3ig")
 metadata/_custom_type_script = "uid://tlhtrwmg3qaa"

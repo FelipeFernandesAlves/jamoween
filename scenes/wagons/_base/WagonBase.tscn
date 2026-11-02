@@ -5,6 +5,20 @@
 [ext_resource type="Shader" uid="uid://bipadcge6ngus" path="res://scenes/wagons/_base/camera_bars.gdshader" id="2_ibxpv"]
 [ext_resource type="AudioStream" uid="uid://cvfureo2rf67c" path="res://scenes/wagons/_base/ambience.ogg" id="2_k0d4v"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5xdhe"]
+normal = Vector2(0, 1)
+distance = 190.92
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ix0rh"]
+distance = -711.6
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2rrdo"]
+normal = Vector2(1, 0)
+distance = -95.46
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_noql1"]
+normal = Vector2(-1, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0d4v"]
 shader = ExtResource("2_ibxpv")
 shader_parameter/width = 0.12999999709424
@@ -61,6 +75,21 @@ tile_map_data = PackedByteArray("AAAAAAEABAAEAAQAAAAAAAIABAAEAAUAAAABAAEABAAFAAQ
 tile_set = ExtResource("1_5xdhe")
 
 [node name="Collisions" type="Node2D" parent="." unique_id=1510512279]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collisions" unique_id=1008491749]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D" unique_id=1814579766]
+shape = SubResource("WorldBoundaryShape2D_5xdhe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions/StaticBody2D" unique_id=1876967004]
+shape = SubResource("WorldBoundaryShape2D_ix0rh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D" unique_id=890130893]
+shape = SubResource("WorldBoundaryShape2D_2rrdo")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collisions/StaticBody2D" unique_id=1312270313]
+position = Vector2(1632, 7)
+shape = SubResource("WorldBoundaryShape2D_noql1")
 
 [node name="CameraLimit" type="Area2D" parent="." unique_id=1307054044]
 

@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://blx0kjxeigp6f"]
 
 [ext_resource type="PackedScene" uid="uid://ch16n48kxrjtu" path="res://scenes/wagons/_base/WagonBase.tscn" id="1_b1yjs"]
+[ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="2_mjiei"]
 
 [node name="WagonBase" unique_id=1777152443 instance=ExtResource("1_b1yjs")]
+
+[node name="Camera" parent="." index="3" unique_id=1408765568 node_paths=PackedStringArray("target")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." index="6" unique_id=434478635 instance=ExtResource("2_mjiei")]
+position = Vector2(-231, 399)
