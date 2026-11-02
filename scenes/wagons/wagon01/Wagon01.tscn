@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cb311bsv1qin6" path="res://actors/door/Door.tscn" id="14_1ps0d"]
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="15_58nyd"]
 [ext_resource type="Resource" uid="uid://dkhhmh7munufk" path="res://scenes/wagons/wagon02/olho.dialogue" id="16_rr1tt"]
+[ext_resource type="Texture2D" uid="uid://bofoa13x34h5j" path="res://scenes/wagons/wagon01/assets/oio.png" id="17_rr1tt"]
 
 [sub_resource type="Animation" id="Animation_biehm"]
 length = 0.001
@@ -134,7 +135,97 @@ radius = 156.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr1tt"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17qur"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opdda"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jns6c"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbdib"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg0qj"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cqc"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o15ja"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ollxw"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi23v"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb1wx"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmjrw"]
+atlas = ExtResource("17_rr1tt")
+region = Rect2(2112, 0, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_17qur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr1tt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17qur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opdda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jns6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbdib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg0qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5cqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o15ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ollxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi23v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb1wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmjrw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opdda"]
 size = Vector2(18.267235, 30.7776)
@@ -279,15 +370,16 @@ shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="EyeSpirit" parent="Entities" index="5" unique_id=1777842981 node_paths=PackedStringArray("interaction_area", "sprites") instance=ExtResource("15_58nyd")]
 position = Vector2(100, 48)
-scale = Vector2(1.2, 1.2)
 collision_layer = 0
 interaction_dialogue = ExtResource("16_rr1tt")
 interaction_area = NodePath("Area2D")
 sprites = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Entities/EyeSpirit" index="2" unique_id=142071341]
-position = Vector2(-2, 28)
+position = Vector2(-2, 71.24)
 sprite_frames = SubResource("SpriteFrames_17qur")
+autoplay = "default"
+frame_progress = 0.92471695
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/EyeSpirit" index="3" unique_id=1935433371]
 position = Vector2(-1, 52)

@@ -2,9 +2,51 @@
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_1w16a"]
 [ext_resource type="Resource" uid="uid://3hwtmmyj50b3" path="res://actors/npc/couple/Couple.dialogue" id="2_sp3rd"]
+[ext_resource type="Texture2D" uid="uid://83lgb5q1ect6" path="res://actors/npc/couple/casal.png" id="3_chddx"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="3_rnqwx"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_chddx"]
+atlas = ExtResource("3_chddx")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr7ix"]
+atlas = ExtResource("3_chddx")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2omx"]
+atlas = ExtResource("3_chddx")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36tig"]
+atlas = ExtResource("3_chddx")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk0lv"]
+atlas = ExtResource("3_chddx")
+region = Rect2(768, 0, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chddx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr7ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2omx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36tig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk0lv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -14,6 +56,9 @@ sprites = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=247161723]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 3
+frame_progress = 0.56869787
 
 [node name="TextureRect" parent="." index="2" unique_id=335960852]
 offset_top = -97.0
