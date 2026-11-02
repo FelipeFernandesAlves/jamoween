@@ -93,7 +93,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_n4g2v")
 animation_player = NodePath("AnimationPlayer")
-texture_rect = NodePath("CenterContainer/VBoxContainer/TextureRect")
+texture_rect = NodePath("CenterContainer/VBoxContainer/MarginContainer/TextureRect")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=91361470]
 layout_mode = 1
@@ -105,6 +105,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=189121667]
+visible = false
 position = Vector2(320, 180)
 amount = 90
 lifetime = 20.0
@@ -136,11 +137,16 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=253417246]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=1757465513]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/MarginContainer" unique_id=253417246]
+layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_3mj2l")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Label" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=56533776]
 clip_contents = false
@@ -154,9 +160,9 @@ theme_override_constants/shadow_outline_size = 12
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/normal_font = ExtResource("4_3mj2l")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
-text = "[wave amp=30 freq=3.75 connected=0]Silly
+text = "[wave amp=30 freq=3.75 connected=0]Shy
 Shoes[/wave]"
 fit_content = true
 scroll_active = false

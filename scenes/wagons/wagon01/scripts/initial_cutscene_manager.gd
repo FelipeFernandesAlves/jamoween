@@ -19,7 +19,7 @@ func start():
 	camera.zoom = Vector2(1.5, 1.5)
 	camera.reset_camera()
 	player.interaction_context.can_interact = false
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 	DialogueManager.show_dialogue_balloon(initial_dialogue)
 	camera.animation_player.play("black_bars")
 	hide_world()

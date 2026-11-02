@@ -1,3 +1,4 @@
+import "res://general/snippets.dialogue" as snippets
 ~ start
 if (!PersistenceKeyManager.check("couple_talked", true)):
 	Você se aproxima dos dois espíritos ecostados na porta. Você sente um forte cheiro de canela e cravo enquanto você se aproxima de uma confusão.
@@ -26,26 +27,36 @@ else:
 	% Canela: Eu juro que se tivesse a chance...
 if (InventoryManager.has_item("family_colar")):
 	Você segura o colar no seu bolso, a corrente passando por entre seus dedos. Esses dois não vão sair dessa sozinhos.
-	Erick: Vocês conseguer lembrar como morreram?
-	Cravo: ... Nós?
-	Canela: Foi por...
-	O silêncio invade o ambiente agressivamente
-	Cravo: Eu só consigo lembrar dele no final.
-	Canela: Eu.. Eu também! Só tem ele, em tudo que eu lembro.
-	Cravo: Você estava lá! Fazendo alguma coisa..
-	Canela: Torta idiota, eu adoro torta! E você também gostava.
-	- E quando isso aconteceu?
-	Cravo: Ah, foi de manhã. Que linda manhã!
-	Canela: Os pequenos iriam vir naquele dia, ah que saudade.
-	Erick: Como assim os pequenos iam vir? Eles não eram.. pequenos?
-	Cravo: Huh, você nunca teve filhos não é?
-	Erick: ehm..
-	Canela: Imaginei. Pra sempre serão meus pequenos.
-	"Pelo menos eles estão concordando em algo". Uma pequena conquista te motiva a continuar.
-	Erick: Seus filhos. Que idade eles tinham.
-	Canela: 48.. ehm.. 48
-	Cravo: 44 e 39.
-	Canela: Isso, ah meus meninos, que suadades.
-
+	- Grite pelo silêncio
+		Erick: [shake rate=20 level=10]VOCÊS FIQUEM QUIETOS E ME ESCUTEM JÁ![/shake]
+		A atenção dos dois se volta para você, mas você sente que seria melhor ter continuado em silêncio.
+		=> snippets/player_death
+	- Erick: Vocês conseguer lembrar como morreram?
+		Cravo: ... Nós?
+		Canela: Foi por...
+		O silêncio invade o ambiente agressivamente
+		Cravo: Eu só consigo lembrar dele no final.
+		Canela: Eu.. Eu também! Só tem ele, em tudo que eu lembro.
+		Cravo: Você estava lá! Fazendo alguma coisa..
+		Canela: Torta idiota, eu adoro torta! E você também gostava.
+		- E quando isso aconteceu?
+		Cravo: Ah, foi de manhã. Que linda manhã!
+		Canela: Os pequenos iriam vir naquele dia, ah que saudade.
+		Erick: Como assim os pequenos iam vir? Eles não eram.. pequenos?
+		Cravo: Huh, você nunca teve filhos não é?
+		Erick: ehm..
+		Canela: Imaginei. Pra sempre serão meus pequenos.
+		"Pelo menos eles estão concordando em algo". Uma pequena conquista te motiva a continuar.
+		Erick: Seus filhos. Que idade eles tinham.
+		Canela: 48.. ehm.. 48
+		Cravo: 44 e 39.
+		Canela: Isso, ah meus meninos, que suadades.
+		Cravo: Oh querido, eles não gostaria de nos ver assim. Tantos e tantos anos juntos para nos reunirmos com tanto ódio aqui.
+		Cravo: Posso não saber exatamente como foi, mas fico aliviado em saber que poderei descansar ao seu lado pelo resto da eternidade.
+		Canela: Oh querido, você sabe como te amo. Não poderia escolher ninguém melhor para estar.
+		Cravo: Vamos logo meu bem, não temos a enternidade inteira.
+		Canela: [wave amp=25 freq=5]Ohohohohohoho[/wave]
+		do PersistenceKeyManager.set_key("couple_vanished", true)
+		do Couple.animate_vanish()
 
 => END
