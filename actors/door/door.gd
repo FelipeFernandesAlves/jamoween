@@ -6,7 +6,9 @@ extends NPC
 
 var can_open: bool:
 	get():
-		return PersistenceKeyManager.check(required_key, true)
+		if (required_key && required_key != ""):
+			return PersistenceKeyManager.check(required_key, true)
+		return true
 
 func _on_interacted():
 	super()
