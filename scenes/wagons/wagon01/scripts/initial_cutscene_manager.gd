@@ -37,9 +37,6 @@ func end():
 	if (!PersistenceKeyManager.get("world_changed")):
 		change_world()
 
-	if PersistenceKeyManager.check("sleeped", true):
-		animation_player.play("wake")
-
 	get_tree().paused = false
 
 func play_sound(sound_name: String, wait: bool = false):
