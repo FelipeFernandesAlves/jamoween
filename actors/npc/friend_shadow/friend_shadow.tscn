@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_kckwp"]
 [ext_resource type="Resource" uid="uid://b80efk1wkfdjn" path="res://actors/npc/friend_shadow/friend_shadow.dialogue" id="2_d1pfb"]
-[ext_resource type="Texture2D" uid="uid://c20eh45k411y6" path="res://actors/npc/friend_shadow/shadow_sheet.png" id="3_d1pfb"]
+[ext_resource type="Texture2D" uid="uid://c2vr6h1834fme" path="res://actors/npc/friend_shadow/friend_shadow.png" id="3_d1pfb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
 radius = 47.0
@@ -10,27 +10,15 @@ height = 94.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ix5bn"]
 atlas = ExtResource("3_d1pfb")
-region = Rect2(0, 0, 96, 96)
+region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck5r2"]
 atlas = ExtResource("3_d1pfb")
-region = Rect2(96, 0, 96, 96)
+region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8x02"]
 atlas = ExtResource("3_d1pfb")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5lt0"]
-atlas = ExtResource("3_d1pfb")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvs31"]
-atlas = ExtResource("3_d1pfb")
-region = Rect2(384, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5k0g"]
-atlas = ExtResource("3_d1pfb")
-region = Rect2(480, 0, 96, 96)
+region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -43,19 +31,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8x02")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5lt0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xvs31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q5k0g")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [node name="Npc" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_kckwp")]
@@ -69,8 +48,7 @@ shape = SubResource("CapsuleShape2D_g4v7s")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame = 4
-frame_progress = 0.8295368
+frame_progress = 0.26505306
 
 [node name="TextureRect" parent="." index="3" unique_id=335960852]
 offset_top = -115.0

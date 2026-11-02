@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c20eh45k411y6"
-path="res://.godot/imported/shadow_sheet.png-db3bb122525ce662ae303b474b6259a8.ctex"
+uid="uid://bswnm7mqhhbic"
+path="res://.godot/imported/possessive_sprite.png-3d7081b2874ee43af95007e4877fbf1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/npc/friend_shadow/shadow_sheet.png"
-dest_files=["res://.godot/imported/shadow_sheet.png-db3bb122525ce662ae303b474b6259a8.ctex"]
+source_file="res://actors/npc/possessive_spirit/possessive_sprite.png"
+dest_files=["res://.godot/imported/possessive_sprite.png-3d7081b2874ee43af95007e4877fbf1a.ctex"]
 
 [params]
 
