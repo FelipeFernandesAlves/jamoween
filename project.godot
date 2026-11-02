@@ -38,6 +38,10 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Jamoween"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/interactables/plugin.cfg", "res://addons/menus/plugin.cfg", "res://addons/sceneloader/plugin.cfg", "res://addons/shy_juice_box/plugin.cfg", "res://addons/shysplashscreen/plugin.cfg")
@@ -110,3 +114,4 @@ locale/translations_pot_files=PackedStringArray("res://actors/npc/friend_shadow/
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

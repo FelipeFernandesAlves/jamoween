@@ -10,7 +10,7 @@ if (!PersistenceKeyManager.check("has_talked_to_possessive_spirit", true)):
 	Erick: Obrigado.
 	Criaturinha: Sabe, eu tenho uma coisa pra você.
 	Erick: Sério?
-	Criaturinha: Sim Sim! Na verdade, eu achei [wave amp=15 freq=5][b][color=#de9e41]duas coisas[/color][/b][/wave] nesses vagões e não tenho mões para ficar segurando as duas.
+	Criaturinha: Sim Sim! Na verdade, eu achei [wave amp=15 freq=5][b][color=#de9e41]duas coisas[/color][/b][/wave] nesses vagões e não tenho mões para ficar segurando os dois.
 	Criaturinha: Fica com esse que não cabe no meu bolso tio!
 	do InventoryManager.add_item_by_path("res://resources/items/blood_saw.tres")
 	do PersistenceKeyManager.set_key("has_talked_to_possessive_spirit", true)
