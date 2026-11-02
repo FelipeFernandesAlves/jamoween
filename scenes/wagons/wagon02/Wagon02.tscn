@@ -2,11 +2,82 @@
 
 [ext_resource type="PackedScene" uid="uid://ch16n48kxrjtu" path="res://scenes/wagons/_base/WagonBase.tscn" id="1_b1yjs"]
 [ext_resource type="PackedScene" uid="uid://cpysis1btdduh" path="res://actors/player/Player.tscn" id="2_mjiei"]
+[ext_resource type="PackedScene" uid="uid://cb311bsv1qin6" path="res://actors/door/Door.tscn" id="3_f1gv8"]
+[ext_resource type="PackedScene" uid="uid://ck6ykq43m50gg" path="res://actors/scene_item/scene_item.tscn" id="4_jkxjg"]
+[ext_resource type="Texture2D" uid="uid://cjbdus6emsf81" path="res://_raw_assets/filtro.png" id="5_0vb02"]
+[ext_resource type="Resource" uid="uid://ug1h2e4k0qpo" path="res://scenes/wagons/wagon02/filtro.dialogue" id="5_4cos3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0d"]
+size = Vector2(125.77325, 36.38823)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0vb02")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 
 [node name="WagonBase" unique_id=1777152443 instance=ExtResource("1_b1yjs")]
 
-[node name="Camera" parent="." index="3" unique_id=1408765568 node_paths=PackedStringArray("target")]
-target = NodePath("../Player")
+[node name="CollisionShape2D3" parent="Collisions/StaticBody2D" parent_id_path=PackedInt32Array(1008491749) index="1" unique_id=1876967004]
+position = Vector2(0, -55)
 
-[node name="Player" parent="." index="6" unique_id=434478635 instance=ExtResource("2_mjiei")]
-position = Vector2(-231, 399)
+[node name="CollisionShape2D2" parent="Collisions/StaticBody2D" parent_id_path=PackedInt32Array(1008491749) index="2" unique_id=890130893]
+position = Vector2(-195, -12)
+
+[node name="CollisionShape2D" parent="CameraLimit" parent_id_path=PackedInt32Array(1307054044) index="0" unique_id=426174442]
+visible = false
+position = Vector2(701, 318)
+scale = Vector2(17.110155, 24.403492)
+shape = SubResource("RectangleShape2D_1ps0d")
+
+[node name="Camera" parent="." index="3" unique_id=1408765568 node_paths=PackedStringArray("target")]
+target = NodePath("../Entities/Player")
+
+[node name="Player" parent="Entities" parent_id_path=PackedInt32Array(586613649) index="0" unique_id=434478635 instance=ExtResource("2_mjiei")]
+position = Vector2(-159, 410)
+
+[node name="Door" parent="Entities" parent_id_path=PackedInt32Array(586613649) index="1" unique_id=587563385 instance=ExtResource("3_f1gv8")]
+position = Vector2(1591, 379)
+
+[node name="Area2D" type="Area2D" parent="Entities/Door" index="5" unique_id=971966117]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Door/Area2D" index="0" unique_id=316208153]
+scale = Vector2(-15.964115, -15.964115)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Door2" parent="Entities" parent_id_path=PackedInt32Array(586613649) index="2" unique_id=1957192413 instance=ExtResource("3_f1gv8")]
+position = Vector2(-245, 421)
+next_room_path = "res://scenes/wagons/wagon01/Wagon01.tscn"
+
+[node name="Area2D" type="Area2D" parent="Entities/Door2" index="5" unique_id=398365388]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Door2/Area2D" index="0" unique_id=545729721]
+scale = Vector2(-15.964115, -15.964115)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="SceneItem" parent="." index="6" unique_id=1047736841 node_paths=PackedStringArray("interaction_area", "sprites") instance=ExtResource("4_jkxjg")]
+position = Vector2(813, 106)
+interaction_dialogue = ExtResource("5_4cos3")
+interaction_area = NodePath("Area2D")
+sprites = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="SceneItem" index="2" unique_id=2142754796]
+position = Vector2(1, 66)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="SceneItem" index="3" unique_id=1080488004]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneItem/Area2D" index="0" unique_id=1549882376]
+position = Vector2(0, 68)
+scale = Vector2(19.154606, 19.370556)
+shape = SubResource("CircleShape2D_yf5fn")

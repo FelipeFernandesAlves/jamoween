@@ -40,6 +40,7 @@ func _on_focus_out():
 	dialogue_icon.visible = false
 
 func animate_vanish():
+	interactable.active = false
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "modulate:a", 0.0, 2.0)

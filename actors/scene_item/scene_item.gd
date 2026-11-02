@@ -12,6 +12,7 @@ extends Node2D
 @export var interaction_sine: Sine
 
 @export var item: Item
+@export var delete: bool = false
 
 func _ready() -> void:
 	interactable.interacted.connect(_on_interacted)
@@ -37,7 +38,8 @@ func _on_interacted():
 	
 	if (item):
 		InventoryManager.add_item(item)
-		queue_free()
+		if (delete):
+			queue_free()
 
 func _on_focus_in():
 	sprites.material.set_shader_parameter("active", true)

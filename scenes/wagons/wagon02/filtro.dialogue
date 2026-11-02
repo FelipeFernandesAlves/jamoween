@@ -1,0 +1,14 @@
+~ start
+if (InventoryManager.has_item("Copo")):
+	- Encher Copo
+		Você abre a torneira do filtro misterioso e escorre o líquido pungente para dentro do copo.
+		Não, você não vai beber isso.
+	- Sair
+		=> END
+elif (InventoryManager.has_item("Copo (com água)")):
+	Não cabe mais água nesse copo
+else:
+	Erick: Eu preciso de um copo pra colocar água.
+	Erick: Ou o que quer que seja isso.
+
+=> END

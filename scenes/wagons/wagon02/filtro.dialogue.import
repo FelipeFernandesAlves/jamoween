@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ug1h2e4k0qpo"
+path="res://.godot/imported/filtro.dialogue-30945b9505fe0419778ad95d28fdbfda.tres"
+
+[deps]
+
+source_file="res://scenes/wagons/wagon02/filtro.dialogue"
+dest_files=["res://.godot/imported/filtro.dialogue-30945b9505fe0419778ad95d28fdbfda.tres"]
+
+[params]
+
+defaults=true

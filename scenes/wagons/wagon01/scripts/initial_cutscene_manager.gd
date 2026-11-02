@@ -70,6 +70,7 @@ func change_world():
 	for i in otherworld_items:
 		i.visible = true
 	PersistenceKeyManager.set_key("world_changed", true)
+	normal_tile_map.visible = false
 
 func hide_world():
 	for i in otherworld_items:

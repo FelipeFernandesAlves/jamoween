@@ -17,6 +17,25 @@ if (!PersistenceKeyManager.check("has_talked_to_possessive_spirit", true)):
 	Erick: Valeu!
 	if (PersistenceKeyManager.check("has_talked_to_passage_spirit", true)):
 		Erick: Acho que consigo usar isso pra quebrar a porta atrás daquele bixo do outro lado do vagão.
+elif (InventoryManager.has_item("Copo (com água)")):
+	Criaturinha: [wave amp=20 freq=5]Seeeeeeeeeedeeeeee[/wave]
+	Erick: Ei carinha, bebe isso aqui
+	Você oferece o copo maligno pra ele beber.
+	Criaturinha: [wave amp=25 freq=5]Gulp gulp gulp globs[/wave]
+	Criaturinha: [wave amp=25 freq=5]Nooooooooossaaaa[/wave]
+	Criaturinha: Eu precisava mesmo disso! Muito obrigado
+	Erick: Qualquer dia desses você me retribui.
+	Você dá uma piscadela pra ele. Ele parece claramente desconfortável com sua tentativa de simpatia.
+	Criaturinha: Olha, eu realmente gostaria de manter minhas coisas.
+	Criaturinha: Mas não importa o quanto eu tente, não consigo passar com elas.
+	Erick: Eu consigo levar pra você, já que me ajudou tanto!
+	Criaturinha: Não, eu sinto que não vai funcionar.
+	Criaturinha: Além disso, você já fez demais.
+	Ele larga alguma coisa no chão e olha lentamente para o teto do vagão.
+	Uma expirada pesada de ar escapa dos pulmões do pequeno pilantrinha
+	Criaturinha: Pode fica, não me serve mais. Não dá pra levar esse tipo de coisa pra onde eu vou mesmo.
+	Erick: Vai em paz carinha..
+	Amigo: Se cuida!
 else:
 	Criaturinha: Faça bom uso do meu tesouro tio!
 	Erick: Às suas ordens camarada!
