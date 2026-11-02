@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhrcfae6g5k58"]
 
 [ext_resource type="PackedScene" uid="uid://dd5yock0wsy00" path="res://actors/npc/_base/npc.tscn" id="1_1w16a"]
+[ext_resource type="Script" uid="uid://cl2ss0fam68ka" path="res://actors/npc/couple/couple.gd" id="2_chddx"]
 [ext_resource type="Resource" uid="uid://3hwtmmyj50b3" path="res://actors/npc/couple/Couple.dialogue" id="2_sp3rd"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="3_rnqwx"]
 
@@ -9,6 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
 [node name="Npc" unique_id=587563385 node_paths=PackedStringArray("sprites") instance=ExtResource("1_1w16a")]
+script = ExtResource("2_chddx")
 interaction_dialogue = ExtResource("2_sp3rd")
 sprites = NodePath("AnimatedSprite2D")
 

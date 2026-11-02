@@ -26,6 +26,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 PersistenceKeyManager="*uid://dwmym6f55la42"
 SceneManager="*uid://c6aii2yjm38jo"
 InventoryManager="*uid://c0byr2c7xrhfp"
+NpcContext="*uid://cs12mj4gjkylq"
 
 [dialogue_manager]
 

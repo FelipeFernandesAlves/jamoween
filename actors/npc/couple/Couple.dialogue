@@ -57,6 +57,6 @@ if (InventoryManager.has_item("family_colar")):
 		Cravo: Vamos logo meu bem, não temos a enternidade inteira.
 		Canela: [wave amp=25 freq=5]Ohohohohohoho[/wave]
 		do PersistenceKeyManager.set_key("couple_vanished", true)
-		do Couple.animate_vanish()
+		do NpcContext.eye.animate_vanish()
 
 => END

@@ -91,7 +91,7 @@ else:
 	=> END
 
 ~ spirit_death
-do PassageSpirit.animate_vanish()
+do NpcContext.passage_spirit.animate_vanish()
 do PersistenceKeyManager.set_key("passage_spirit_vanished", true)
 
 => END

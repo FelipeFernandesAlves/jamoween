@@ -398,6 +398,7 @@ current = true
 script = ExtResource("2_dthho")
 target = NodePath("..")
 interaction_input = &"interact"
+can_interact = true
 metadata/_custom_type_script = "uid://bx0sb6swfronr"
 
 [node name="DialogueStateContext" type="Node" parent="." unique_id=2063018370 node_paths=PackedStringArray("target")]

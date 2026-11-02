@@ -28,3 +28,6 @@ func _start_game():
 	await scene_loader.node2D_loaded
 	if (splash_screen_instance):
 		splash_screen_instance.queue_free()
+
+func _process(delta: float) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

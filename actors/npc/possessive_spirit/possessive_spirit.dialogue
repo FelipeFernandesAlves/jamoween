@@ -39,7 +39,7 @@ elif (InventoryManager.has_item("Copo (com água)")):
 	Amigo: Se cuida!
 	do InventoryManager.add_item_by_path("res://resources/items/family_colar.tres")
 	do PersistenceKeyManager.set_key("possessive_spirit_vanished", true)
-	do PossessiveSpirit.animate_vanish()
+	do NpcContext.possessive_spirit.animate_vanish()
 else:
 	Criaturinha: Faça bom uso do meu tesouro tio!
 	Erick: Às suas ordens camarada!
